@@ -1,8 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import HomePage from "../pages/HomePage";
 import LayoutComercial from "../layouts/LayoutComercial";
-import LoginPage from "../pages/LoginPage";
-
 //páginas do comercial
 import ComClientes from "../pages/ComClientes";
 import ComMenuPrincipal from "../pages/ComMenuPrincipal";
@@ -19,13 +16,14 @@ import EngProtocolos from "../pages/EngProtocolos";
 import EngTestes from "../pages/EngTestes";
 import EngVerificacoes from "../pages/EngVerificacoes";
 import LayoutEngenharia from "../layouts/LayoutEngenharia";
+import EngProjetos from "../pages/EngProjetos";
 export const CustomRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LayoutComercial />}>
           <Route
-            path="/comercial-menu-principal"
+            path="comercial-menu-principal"
             element={<ComMenuPrincipal />}
           ></Route>
           <Route path="comercial-clientes" element={<ComClientes />}></Route>
@@ -41,22 +39,26 @@ export const CustomRoutes = () => {
           <Route path="comercial-projetos" element={<ComProjetos />}></Route>
           <Route path="comercial-testes" element={<ComTestes />}></Route>
         </Route>
+
         <Route path="/" element={<LayoutEngenharia />}>
           <Route
-            path="/engenharia-menu-principal"
+            path="engenharia-menu-principal"
             element={<EngMenuPrincipal />}
           ></Route>
           <Route
             path="engenharia-estatisticas"
             element={<EngEstatisticas />}
           ></Route>
-          <Route path="comercial-folowUp" element={<ComFolowUp />}></Route>
+          <Route path="engenharia-projetos" element={<EngProjetos />}></Route>
           <Route
-            path="comercial-orcamentos"
-            element={<ComOrcamentos />}
+            path="engenharia-protocolos"
+            element={<EngProtocolos />}
           ></Route>
-          <Route path="comercial-projetos" element={<ComProjetos />}></Route>
-          <Route path="comercial-testes" element={<ComTestes />}></Route>
+          <Route path="engenharia-testes" element={<EngTestes />}></Route>
+          <Route
+            path="engenharia-verificacoes"
+            element={<EngVerificacoes />}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>

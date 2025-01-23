@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function ComFolowUp() {
-  return (
-    <div>ComFolowUp</div>
-  )
+  return <div>ComFolowUp</div>;
 }

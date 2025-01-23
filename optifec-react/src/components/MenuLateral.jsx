@@ -12,37 +12,27 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import BarraNavegacao from "./BarraNavegacao";
+import { useNavigate } from "react-router-dom";
 
-export default function MenuLateral({ titulo }) {
+export default function MenuLateral({ titulo, itensMenu }) {
   const [open, setOpen] = React.useState(false);
 
+  //Função para ativar e desativar o drawer
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
+  //Navegação dos links
+  const navigate = useNavigate();
+
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        {itensMenu.map((item, index) => (
+          <ListItem key={item.titulo} disablePadding>
+            <ListItemButton onClick={() => navigate(item.patch)}>
+              <ListItemIcon>{item.icone}</ListItemIcon>
+              <ListItemText primary={item.titulo} />
             </ListItemButton>
           </ListItem>
         ))}
