@@ -47,8 +47,8 @@ export default function LayoutComercial() {
       />
       <Box
         sx={{
-          borderRadius: "8px", 
-          padding: "16px", 
+          borderRadius: "8px",
+          padding: "16px",
           margin: "16px",
         }}
       >

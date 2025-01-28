@@ -6,17 +6,14 @@ const paginationModel = { page: 0, pageSize: 5 };
 
 export default function TabelaListagem({ colunas, itens }) {
   return (
-    <>
-      <Paper sx={{ height: 400, width: "100%" }}>
-        <DataGrid
-          rows={itens}
-          columns={colunas}
-          initialState={{ pagination: { paginationModel } }}
-          pageSizeOptions={[5, 10]}
-          checkboxSelection
-          sx={{ border: 0 }}
-        />
-      </Paper>
-    </>
+    <Paper sx={{ height: 600, width: "100%" }} elevation={0}>
+      <DataGrid
+        rows={itens}
+        columns={colunas}
+        initialState={{ pagination: { paginationModel } }}
+        pageSizeOptions={[5, 10]}
+        sx={{ border: 0 }}
+      />
+    </Paper>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import TextField from "@mui/material/TextField";
+import { Grid2 as Grid } from "@mui/material";
 
 export default function FormCliente() {
   return (
@@ -15,44 +15,27 @@ export default function FormCliente() {
         sx={{
           display: "flex",
           flexDirection: "column",
+          columnCount: "2",
           width: "100%",
           gap: 2,
         }}
       >
-        <FormControl>
-          <FormLabel htmlFor="email">Email</FormLabel>
-          <TextField
-            //error={emailError}
-            // helperText={emailErrorMessage}
-            id="email"
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-            autoComplete="email"
-            autoFocus
-            required
-            fullWidth
-            variant="outlined"
-            // color={emailError ? "error" : "primary"}
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <TextField
-            // error={passwordError}
-            // helperText={passwordErrorMessage}
-            name="password"
-            placeholder="••••••"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            autoFocus
-            required
-            fullWidth
-            variant="outlined"
-            //color={passwordError ? "error" : "primary"}
-          />
-        </FormControl>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 2 }}
+          columns={{ xs: 4, sm: 8, md: 8 }}
+        >
+          <Grid size={{ xs: 2, sm: 4, md: 4 }}>
+            <FormControl fullWidth>
+              <TextField label="Nome"></TextField>
+            </FormControl>
+          </Grid>
+          <Grid size={{ xs: 2, sm: 4, md: 4 }}>
+            <FormControl fullWidth>
+              <TextField label="Nome"></TextField>
+            </FormControl>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );

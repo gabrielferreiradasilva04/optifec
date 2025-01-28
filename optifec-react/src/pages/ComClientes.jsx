@@ -3,6 +3,7 @@ import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
 import FormCliente from "../components/forms/FormCliente";
 import Divider from "@mui/material/Divider";
+import { Padding } from "@mui/icons-material";
 
 export default function ComClientes() {
   const colunas = [
@@ -29,17 +30,15 @@ export default function ComClientes() {
   ];
   return (
     <>
-      <Box>
+      <Box sx={{ display:"flex", flexDirection:"column", gap:"20px"}}>
         <Box>
           <FormCliente />
         </Box>
-        <Divider sx={{margin: "20px"}} orientation="horizontal" />
         <Box
           sx={{
             alignItems: "center",
             justifyContent: "center",
             display: "flex",
-            border: "none",
           }}
         >
           <TabelaListagem colunas={colunas} itens={itens} />
