@@ -14,7 +14,7 @@ export default function CustomTextField({
         variant={variant}
         sx={{
           "& .MuiOutlinedInput-root": {
-            borderRadius: "8px", 
+            borderRadius: "8px",
           },
         }}
         {...props}
