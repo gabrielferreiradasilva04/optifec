@@ -55,10 +55,10 @@ export default function FormCliente() {
             sx={{
               paddingTop: "16px",
               paddingBottom: "16px",
-              display:"-ms-flexbox",
+              display: "-ms-flexbox",
               flexDirection: { mx: "row", sm: "column", md: "row" },
               justifyContent: "end",
-              gap:"6px"
+              gap: "6px",
             }}
           >
             <CustomMediumButton color="primary">Salvar</CustomMediumButton>
