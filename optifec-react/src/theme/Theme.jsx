@@ -9,6 +9,7 @@ import {
   lightBlue,
   red,
   yellow,
+  orange,
 } from "@mui/material/colors";
 
 export const lightTheme = createTheme(
@@ -16,7 +17,8 @@ export const lightTheme = createTheme(
     palette: {
       mode: "light",
       primary: {
-        main: green[900],
+        main: green[700],
+        dark: green[900],
       },
       secondary: {
         main: "#9c27b0",
@@ -28,6 +30,15 @@ export const lightTheme = createTheme(
       text: {
         primary: "#000000",
         secondary: "#4f4f4f",
+      },
+      error: {
+        main: red[500],
+      },
+      warning: {
+        main: orange[500],
+      },
+      success: {
+        main: lightGreen[600],
       },
     },
   },
@@ -51,6 +62,15 @@ export const darkTheme = createTheme(
       text: {
         primary: "#ffffff",
         secondary: "#bdbdbd",
+      },
+      error: {
+        main: red[500],
+      },
+      warning: {
+        main: orange[500],
+      },
+      success: {
+        main: lightGreen[600],
       },
     },
   },

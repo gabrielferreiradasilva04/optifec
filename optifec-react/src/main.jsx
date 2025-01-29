@@ -13,6 +13,7 @@ import "@fontsource/roboto/700.css";
 //importar tema
 import { ThemeProviderWrapper } from "./theme/ThemeContext.jsx";
 
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CssBaseline>

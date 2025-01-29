@@ -12,6 +12,7 @@ import {
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
+import RodapeAplicacao from "../components/RodapeAplicacao";
 
 export default function LayoutComercial() {
   const itensMenu = [
@@ -24,7 +25,7 @@ export default function LayoutComercial() {
     { titulo: "FolowUp", patch: "/comercial-folowUp", icone: <Schema /> },
     {
       titulo: "Orçamentos",
-      patch: "/comercial-orçamentos",
+      patch: "/comercial-orcamentos",
       icone: <MonetizationOn />,
     },
     {
@@ -50,9 +51,12 @@ export default function LayoutComercial() {
           borderRadius: "8px",
           padding: "16px",
           margin: "16px",
+          marginTop: "80px",
+          height: "100vh",
         }}
       >
         <Outlet />
+        <RodapeAplicacao sx={{ my: 4 }} />
       </Box>
     </>
   );

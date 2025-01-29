@@ -1,10 +1,6 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
-import { Grid2 as Grid, Paper, Stack } from "@mui/material";
-import CustomMediumButton from "../basicComponents/CustomMediumButton";
-import CustomTextField from "../basicComponents/CustomTextField";
-export default function FormCliente() {
+
+export default function FormOrcamento() {
   return (
     <>
       <Paper sx={{ padding: "16px" }} elevation={0}>
@@ -16,6 +12,14 @@ export default function FormCliente() {
           }}
         >
           <h3>Formulário Cliente</h3>
+          <Stack
+            direction={{ mx: "column", sm: "column", md: "column" }}
+            spacing={{ xs: 1, md: 1 }}
+            sx={{ paddingTop: "16px", paddingBottom: "16px" }}
+          >
+            <CustomMediumButton color="primary">Salvar</CustomMediumButton>
+            <CustomMediumButton color="error">Excluir</CustomMediumButton>
+          </Stack>
         </Box>
         <Box
           component="form"
@@ -51,19 +55,6 @@ export default function FormCliente() {
               <CustomTextField label="Solicitante"></CustomTextField>
             </Grid>
           </Grid>
-          <Stack
-            sx={{
-              paddingTop: "16px",
-              paddingBottom: "16px",
-              display:"-ms-flexbox",
-              flexDirection: { mx: "row", sm: "column", md: "row" },
-              justifyContent: "end",
-              gap:"6px"
-            }}
-          >
-            <CustomMediumButton color="primary">Salvar</CustomMediumButton>
-            <CustomMediumButton color="error">Excluir</CustomMediumButton>
-          </Stack>
         </Box>
       </Paper>
     </>

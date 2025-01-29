@@ -2,18 +2,15 @@ import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
 import FormCliente from "../components/forms/FormCliente";
-import Divider from "@mui/material/Divider";
-import { Padding } from "@mui/icons-material";
 
 export default function ComClientes() {
   const colunas = [
-    { field: "id", headerName: "ID", flex: 1 },
-    { field: "firstName", headerName: "Primeiro Nome", flex: 1 },
-    { field: "lastName", headerName: "Último Nome", flex: 1 },
+    { field: "id", headerName: "Código do Cliente", flex: 1 },
+    { field: "firstName", headerName: "Nome Cliente", flex: 1 },
+    { field: "lastName", headerName: "Representante", flex: 1 },
     {
       field: "age",
-      headerName: "Idade",
-      type: "number",
+      headerName: "Solicitante",
       flex: 1,
     },
   ];
@@ -30,7 +27,13 @@ export default function ComClientes() {
   ];
   return (
     <>
-      <Box sx={{ display:"flex", flexDirection:"column", gap:"20px"}}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}
+      >
         <Box>
           <FormCliente />
         </Box>

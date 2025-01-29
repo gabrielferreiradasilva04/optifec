@@ -14,9 +14,8 @@ export default function BarraNavegacao({ toggleDrawer, titulo }) {
   const theme = useTheme(); // Acessa o tema atual
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
+          position="fixed"
           sx={{ backgroundColor: theme.palette.primary.main }}
         >
           <Toolbar>
@@ -46,7 +45,6 @@ export default function BarraNavegacao({ toggleDrawer, titulo }) {
             </IconButton>
           </Toolbar>
         </AppBar>
-      </Box>
     </>
   );
 }
