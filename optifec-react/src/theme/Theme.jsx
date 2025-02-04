@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { ptBR } from "../utils/DataGridPTBR";
+import { ptBR } from "../utils/dataGridPTBR";
 
 import {
   teal,

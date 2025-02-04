@@ -2,29 +2,39 @@ import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
 import FormCliente from "../components/forms/FormCliente";
+import { useState } from "react";
 
 export default function ComClientes() {
   const colunas = [
     { field: "id", headerName: "Código do Cliente", flex: 1 },
-    { field: "firstName", headerName: "Nome Cliente", flex: 1 },
-    { field: "lastName", headerName: "Representante", flex: 1 },
+    { field: "nome", headerName: "Nome Cliente", flex: 1 },
+    { field: "representante", headerName: "Representante", flex: 1 },
     {
-      field: "age",
-      headerName: "Solicitante",
+      field: "codigoFecial",
+      headerName: "Cod. Fec",
       flex: 1,
     },
   ];
   const itens = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-    { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-    { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-    { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-    { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+    { id: 1, nome: "Snow", representante: "Jon", codigoFecial: 35 },
+    { id: 2, nome: "Lannister", representante: "Cersei", codigoFecial: 42 },
+    { id: 3, nome: "Lannister", representante: "Jaime", codigoFecial: 45 },
+    { id: 4, nome: "Stark", representante: "Arya", codigoFecial: 16 },
+    { id: 5, nome: "Targaryen", representante: "Daenerys", codigoFecial: null },
+    { id: 6, nome: "Melisandre", representante: null, codigoFecial: 150 },
+    { id: 7, nome: "Clifford", representante: "Ferrara", codigoFecial: 44 },
+    { id: 8, nome: "Frances", representante: "Rossini", codigoFecial: 36 },
+    { id: 9, nome: "Roxie", representante: "Harvey", codigoFecial: 65 },
   ];
+  //cliente sendo alterado
+  const [clienteSelecionado, setClienteSelecionado] = useState(null);
+
+  const handleSelectOnClick = (cliente) => {  
+    if(cliente){
+      setClienteSelecionado(cliente);
+    }
+  };
+
   return (
     <>
       <Box
@@ -35,7 +45,7 @@ export default function ComClientes() {
         }}
       >
         <Box>
-          <FormCliente />
+          <FormCliente clienteSelecionado={clienteSelecionado}/>
         </Box>
         <Box
           sx={{
@@ -44,7 +54,7 @@ export default function ComClientes() {
             display: "flex",
           }}
         >
-          <TabelaListagem colunas={colunas} itens={itens} />
+          <TabelaListagem handleSelectOnClick={handleSelectOnClick} colunas={colunas} itens={itens} />
         </Box>
       </Box>
     </>

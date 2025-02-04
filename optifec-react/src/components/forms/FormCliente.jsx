@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import { Grid2 as Grid, Paper, Stack } from "@mui/material";
 import CustomMediumButton from "../basicComponents/CustomMediumButton";
 import CustomTextField from "../basicComponents/CustomTextField";
-export default function FormCliente() {
+import { useSelector } from "react-redux";
+
+export default function FormCliente({clienteSelecionado}) {
+  const [dadosFormulario, setDadosFormulario] = useState(clienteSelecionado || {});
+
+  //Quando o cliente selecioando for alterado o useEffect é chamado atualizando o dadosFormulario para o novo valor de clienteSelecionado
+  useEffect(()=>{
+    setDadosFormulario(clienteSelecionado || {})
+  },[clienteSelecionado]);
+
+  //atualizar dados quando editar o formulário do cliente
+  const handleEdicaoFormulario = (e) =>{
+    const{name, value} = e.target;
+    setDadosFormulario((prev) => ({...prev, [name]: value}))
+  }
+
+  //limpar os dados do formulário
+  const limparFormulario = () =>{
+    setDadosFormulario("");
+  }
+
+  //salvar cliente
+  const salvarFormulario =(e)=>{
+    e.preventDefault();
+    dadosFormulario? console.log(dadosFormulario): console.log("Sem dados");
+  }
+
+  //buscar clientes do store
+  const clientes = useSelector((state) => state.clienteStore.clientes);
+
   return (
     <>
       <Paper sx={{ padding: "16px" }} elevation={0}>
@@ -19,7 +48,7 @@ export default function FormCliente() {
         </Box>
         <Box
           component="form"
-          onSubmit={null}
+          onSubmit={salvarFormulario}
           noValidate
           sx={{
             display: "flex",
@@ -39,16 +68,16 @@ export default function FormCliente() {
               spacing={{ xs: 2, md: 2 }}
               size={{ xs: 2, sm: 4, md: 4 }}
             >
-              <CustomTextField label="Código do Cliente"></CustomTextField>
-              <CustomTextField label="Representante Responsável"></CustomTextField>
+              <CustomTextField disabled={true} onChange={handleEdicaoFormulario} type="number" name="id" value={dadosFormulario.id || ""} label="Código do Cliente"></CustomTextField>
+              <CustomTextField required={true} type="text" onChange={handleEdicaoFormulario} name="representante" value={dadosFormulario.representante || ""} label="Representante Responsável"></CustomTextField>
             </Grid>
             <Grid
               container
               spacing={{ xs: 2, md: 2 }}
               size={{ xs: 2, sm: 4, md: 4 }}
             >
-              <CustomTextField label="Nome do Cliente"></CustomTextField>
-              <CustomTextField label="Solicitante"></CustomTextField>
+              <CustomTextField required={true} type="text" onChange={handleEdicaoFormulario} name="nome" value={dadosFormulario.nome || ""} label="Nome do Cliente"></CustomTextField>
+              <CustomTextField required={true}  type="text" onChange={handleEdicaoFormulario} name="codigoFecial" value={dadosFormulario.codigoFecial || ""} label="Codigo Fecial"></CustomTextField>
             </Grid>
           </Grid>
           <Stack
@@ -61,8 +90,10 @@ export default function FormCliente() {
               gap: "6px",
             }}
           >
-            <CustomMediumButton color="primary">Salvar</CustomMediumButton>
+            <CustomMediumButton type="submit" color="primary">Salvar</CustomMediumButton>
+            <CustomMediumButton onClick={limparFormulario} color="warning">Limpar</CustomMediumButton>
             <CustomMediumButton color="error">Excluir</CustomMediumButton>
+
           </Stack>
         </Box>
       </Paper>

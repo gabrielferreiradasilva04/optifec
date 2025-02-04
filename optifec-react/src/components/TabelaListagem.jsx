@@ -2,13 +2,12 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import { Box, IconButton } from "@mui/material";
-import CustomMediumButton from "./basicComponents/CustomMediumButton";
 import CustomTextField from "./basicComponents/CustomTextField";
 import SearchIcon from "@mui/icons-material/Search";
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function TabelaListagem({ colunas, itens }) {
+export default function TabelaListagem({ colunas, itens, handleSelectOnClick }) {
   return (
     <Paper
       sx={{
@@ -44,6 +43,10 @@ export default function TabelaListagem({ colunas, itens }) {
         initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
         sx={{ padding: 2 }}
+        onRowClick={(params) => handleSelectOnClick(params.row)}
+        isRowSelectable={()=>true}
+        showCellVerticalBorder
+        hideFooterSelectedRowCount
       />
     </Paper>
   );
