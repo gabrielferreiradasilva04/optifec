@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ComProjetos() {
+export default function Projeto() {
   return (
     <div>ComProjetos</div>
   )

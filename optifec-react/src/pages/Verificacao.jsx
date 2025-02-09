@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function EngVerificacoes() {
+export default function Verificacao() {
   return (
     <div>EngVerificacoes</div>
   )

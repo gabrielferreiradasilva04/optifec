@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function EngProtocolos() {
+export default function Protocolo() {
   return (
     <div>EngProtocolos</div>
   )

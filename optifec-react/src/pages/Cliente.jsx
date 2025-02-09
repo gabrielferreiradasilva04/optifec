@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import FormCliente from "../components/forms/FormCliente";
 import { useState } from "react";
 
-export default function ComClientes() {
+export default function Cliente() {
   const colunas = [
     { field: "id", headerName: "Código do Cliente", flex: 1 },
     { field: "nome", headerName: "Nome Cliente", flex: 1 },

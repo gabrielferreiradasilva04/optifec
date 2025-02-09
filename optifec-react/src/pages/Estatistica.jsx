@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ComEstatisiticas() {
+export default function Estatistica() {
   return (
     <div>ComEstatisiticas</div>
   )

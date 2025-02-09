@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ComOrcamentos() {
+export default function Orcamento() {
   return (
     <div>ComOrcamentos</div>
   )

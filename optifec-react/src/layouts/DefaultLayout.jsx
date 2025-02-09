@@ -9,41 +9,48 @@ import {
   MonetizationOn,
   Architecture,
   Science,
+  Article
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
 import RodapeAplicacao from "../components/RodapeAplicacao";
 
-export default function LayoutComercial() {
+export default function DefaultLayout() {
   const itensMenu = [
     {
       titulo: "Menu Principal",
-      patch: "/comercial-menu-principal",
+      patch: "/menu-principal",
       icone: <House />,
     },
-    { titulo: "Clientes", patch: "/comercial-clientes", icone: <Group /> },
-    { titulo: "FolowUp", patch: "/comercial-folowUp", icone: <Schema /> },
+    { titulo: "Clientes", patch: "/cliente", icone: <Group /> },
+    { titulo: "FolowUp", patch: "/followup", icone: <Schema /> },
     {
       titulo: "Orçamentos",
-      patch: "/comercial-orcamentos",
+      patch: "/orcamento",
       icone: <MonetizationOn />,
     },
     {
       titulo: "Projetos",
-      patch: "/comercial-projetos",
+      patch: "/projeto",
       icone: <Architecture />,
     },
-    { titulo: "Testes", patch: "/comercial-testes", icone: <Science /> },
+    { titulo: "Testes", patch: "/teste", icone: <Science /> },
     {
       titulo: "Estatisticas",
-      patch: "/comercial-estatisticas",
+      patch: "/estatistica",
       icone: <Analytics />,
     },
+    {
+      titulo: "Protocolos",
+      patch: "/protocolo",
+      icone: <Article />,
+    },
+
   ];
   return (
     <>
       <MenuLateral
-        titulo={"Optifec - Analista Comercial"}
+        titulo={"Optifec - Integração Empresarial"}
         itensMenu={itensMenu}
       />
       <Box

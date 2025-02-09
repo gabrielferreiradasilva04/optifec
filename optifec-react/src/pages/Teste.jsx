@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ComTestes() {
+export default function Teste() {
   return (
     <div>ComTestes</div>
   )

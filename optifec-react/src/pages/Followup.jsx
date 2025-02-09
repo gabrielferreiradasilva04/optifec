@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ComFolowUp() {
+export default function Followup() {
   return <div>ComFolowUp</div>;
 }
