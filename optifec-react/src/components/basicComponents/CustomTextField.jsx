@@ -16,11 +16,6 @@ export default function CustomTextField({
         label={label}
         variant={variant}
         required={required}
-        sx={{
-          "& .MuiOutlinedInput-root": {
-            borderRadius: "8px",
-          },
-        }}
         {...props}
       />
     </FormControl>
