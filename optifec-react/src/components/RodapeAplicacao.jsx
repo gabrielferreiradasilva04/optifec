@@ -13,16 +13,17 @@ export default function RodapeAplicacao({ ...props }) {
       }}
     >
       <Typography variant="body1">
-        © {new Date().getFullYear()} Optifec. Todos os direitos reservados.
+        © {new Date().getFullYear()} Optifec. Todos os direitos reservados. Desenvolvido por Gabriel Silva
       </Typography>
+
       <Typography variant="body2">
         Entre em contato:{" "}
         <Link
-          href="mailto:contato@optifec.com"
+          href="gabrielferreirasilva04@outlook.com"
           color="inherit"
           underline="hover"
         >
-          contato@optifec.com
+          gabrielferreirasilva04@outlook.com
         </Link>
       </Typography>
     </Container>
