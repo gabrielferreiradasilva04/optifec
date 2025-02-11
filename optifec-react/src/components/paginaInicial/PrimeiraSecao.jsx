@@ -1,5 +1,6 @@
 import React from "react";
-import {Button, Grid2, Paper } from "@mui/material";
+import { Button, Grid2, Paper } from "@mui/material";
+import SliderInicial from "../basicComponents/SliderInicial";
 
 export default function PrimeiraSecao() {
   return (
@@ -19,13 +20,9 @@ export default function PrimeiraSecao() {
         <Paper elevation={0} sx={{ backgroundColor: "transparent" }}>
           <h1>Seja Bem Vindo ao Optifec!</h1>
           <h2>Conectando processos e impulsionando negócios!</h2>
-          <Button variant="contained" >Entre em contato conosco</Button>
+          <Button variant="contained">Entre em contato conosco</Button>
         </Paper>
-        <img
-          loading="lazy"
-          srcSet="/public/images/imagemInicial.jpg"
-          style={{ maxWidth: "30%", height: "auto", borderRadius: 15 }}
-        />
+        <SliderInicial />
       </Grid2>
     </>
   );
