@@ -40,7 +40,7 @@ export default function MenuLateral({ titulo, itensMenu }) {
 
   return (
     <div>
-      <BarraNavegacao toggleDrawer={toggleDrawer(true)} titulo={titulo} />
+      <BarraNavegacao mostrarBotaoEntrar={false} mostrarIconeDrawer={true} toggleDrawer={toggleDrawer(true)} titulo={titulo} />
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

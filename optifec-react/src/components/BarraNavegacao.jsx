@@ -5,21 +5,26 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeContext } from "../theme/ThemeContext";
 import { useTheme } from "@mui/material/styles";
-export default function BarraNavegacao({ toggleDrawer, titulo }) {
+import { grey } from "@mui/material/colors";
+
+export default function BarraNavegacao({ toggleDrawer, titulo, mostrarIconeDrawer, mostrarBotaoEntrar }) {
+  const corBotaoEntrar = grey["A100"];
   const { isDarkMode, toggleTheme } = useThemeContext();
   const theme = useTheme(); // Acessa o tema atual
   return (
     <>
         <AppBar
           position="fixed"
+          elevation={0}
           sx={{ backgroundColor: theme.palette.primary.main }}
         >
           <Toolbar>
-            <IconButton
+            {mostrarIconeDrawer && (
+              <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -29,6 +34,8 @@ export default function BarraNavegacao({ toggleDrawer, titulo }) {
             >
               <MenuIcon />
             </IconButton>
+            )}
+            
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {titulo}
@@ -43,6 +50,9 @@ export default function BarraNavegacao({ toggleDrawer, titulo }) {
             >
               <DarkModeIcon />
             </IconButton>
+            {mostrarBotaoEntrar && (
+            <Button sx={{backgroundColor: corBotaoEntrar, color:'green', borderRadius:'10px'}} variant="contained">Entrar</Button>
+            )}
           </Toolbar>
         </AppBar>
     </>

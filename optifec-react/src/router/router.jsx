@@ -11,6 +11,7 @@ import Protocolo from "../pages/Protocolo"
 import Teste from "../pages/Teste"
 import Verificacao from "../pages/Verificacao"
 import DefaultLayout from "../layouts/DefaultLayout";
+import Index from "../pages/Index";
 export const CustomRoutes = () => {
   return (
     <BrowserRouter>
@@ -55,6 +56,10 @@ export const CustomRoutes = () => {
           <Route
             path="verificacao"
             element={<Verificacao />}
+          ></Route>
+          <Route
+            path="pagina-inicial"
+            element={<Index />}
           ></Route>
         </Route>
       </Routes>
