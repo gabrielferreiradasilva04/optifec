@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
 import { Grid2 as Grid, Paper, Stack } from "@mui/material";
-import CustomMediumButton from "../basicComponents/CustomMediumButton";
-import CustomTextField from "../basicComponents/CustomTextField";
+import CustomMediumButton from "../defaultComponents/CustomMediumButton";
+import CustomTextField from "../defaultComponents/CustomTextField";
 import { useSelector } from "react-redux";
 
 export default function FormCliente({clienteSelecionado}) {

@@ -1,8 +1,8 @@
 import { Grid2 } from "@mui/material";
 import * as React from "react";
-import CustomImageCard from "../basicComponents/CustomImageCard";
+import CustomImageCard from "../defaultComponents/CustomImageCard";
 
-export default function SegundaSecao() {
+export default function SecaoCartoes() {
   return (
     <>
       <Grid2
