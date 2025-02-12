@@ -1,7 +1,8 @@
 import React from "react";
 import BarraNavegacao from "../components/BarraNavegacao";
-import PrimeiraSecao from "../components/paginaInicial/PrimeiraSecao";
-import SegundaSecao from "../components/paginaInicial/SegundaSecao";
+import SecaoApresentacao from "../components/paginaInicial/SecaoApresentacao";
+import SecaoCartoes from "../components/paginaInicial/SecaoCartoes";
+import SecaoFuncionalidade from "../components/paginaInicial/SecaoFuncionalidade";
 import { Box } from "@mui/material";
 
 export default function Index() {
@@ -11,8 +12,8 @@ export default function Index() {
         mostrarBotaoEntrar={true}
         mostrarIconeDrawer={false}
       />
-      <PrimeiraSecao/>
-      <SegundaSecao/>
+      <SecaoApresentacao/>
+      <SecaoCartoes/>
     </Box>
   );
 }

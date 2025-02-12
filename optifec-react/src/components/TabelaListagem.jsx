@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import { Box, IconButton } from "@mui/material";
-import CustomTextField from "./basicComponents/CustomTextField";
+import CustomTextField from "./defaultComponents/CustomTextField";
 import SearchIcon from "@mui/icons-material/Search";
 
 const paginationModel = { page: 0, pageSize: 5 };

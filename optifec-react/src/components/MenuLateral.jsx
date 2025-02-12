@@ -10,7 +10,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 import BarraNavegacao from "./BarraNavegacao";
 import { useNavigate } from "react-router-dom";
-import RodapeAplicacao from "./RodapeAplicacao";
 
 export default function MenuLateral({ titulo, itensMenu }) {
   const [open, setOpen] = React.useState(false);
