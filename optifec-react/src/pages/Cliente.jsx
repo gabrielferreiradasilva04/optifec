@@ -16,15 +16,15 @@ export default function Cliente() {
     },
   ];
   const itens = [
-    { id: 1, nome: "Snow", representante: "Jon", codigoFecial: 35 },
-    { id: 2, nome: "Lannister", representante: "Cersei", codigoFecial: 42 },
-    { id: 3, nome: "Lannister", representante: "Jaime", codigoFecial: 45 },
-    { id: 4, nome: "Stark", representante: "Arya", codigoFecial: 16 },
-    { id: 5, nome: "Targaryen", representante: "Daenerys", codigoFecial: null },
-    { id: 6, nome: "Melisandre", representante: null, codigoFecial: 150 },
-    { id: 7, nome: "Clifford", representante: "Ferrara", codigoFecial: 44 },
-    { id: 8, nome: "Frances", representante: "Rossini", codigoFecial: 36 },
-    { id: 9, nome: "Roxie", representante: "Harvey", codigoFecial: 65 },
+    { id: 1, nome: "Snow", representante: "Jon", codigo: 35 },
+    { id: 2, nome: "Lannister", representante: "Cersei", codigo: 42 },
+    { id: 3, nome: "Lannister", representante: "Jaime", codigo: 45 },
+    { id: 4, nome: "Stark", representante: "Arya", codigo: 16 },
+    { id: 5, nome: "Targaryen", representante: "Daenerys", codigo: "" },
+    { id: 6, nome: "Melisandre", representante: "", codigo: 150 },
+    { id: 7, nome: "Clifford", representante: "Ferrara", codigo: 44 },
+    { id: 8, nome: "Frances", representante: "Rossini", codigo: 36 },
+    { id: 9, nome: "Roxie", representante: "Harvey", codigo: 65 },
   ];
   //cliente sendo alterado
   const [clienteSelecionado, setClienteSelecionado] = useState(null);

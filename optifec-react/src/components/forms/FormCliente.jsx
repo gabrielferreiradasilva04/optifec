@@ -5,30 +5,32 @@ import CustomMediumButton from "../defaultComponents/CustomMediumButton";
 import CustomTextField from "../defaultComponents/CustomTextField";
 import { useSelector } from "react-redux";
 
-export default function FormCliente({clienteSelecionado}) {
-  const [dadosFormulario, setDadosFormulario] = useState(clienteSelecionado || {});
+export default function FormCliente({ clienteSelecionado }) {
+  const [dadosFormulario, setDadosFormulario] = useState(
+    clienteSelecionado || {}
+  );
 
   //Quando o cliente selecioando for alterado o useEffect é chamado atualizando o dadosFormulario para o novo valor de clienteSelecionado
-  useEffect(()=>{
-    setDadosFormulario(clienteSelecionado || {})
-  },[clienteSelecionado]);
+  useEffect(() => {
+    setDadosFormulario(clienteSelecionado || {});
+  }, [clienteSelecionado]);
 
   //atualizar dados quando editar o formulário do cliente
-  const handleEdicaoFormulario = (e) =>{
-    const{name, value} = e.target;
-    setDadosFormulario((prev) => ({...prev, [name]: value}))
-  }
+  const handleEdicaoFormulario = (e) => {
+    const { name, value } = e.target;
+    setDadosFormulario((prev) => ({ ...prev, [name]: value }));
+  };
 
   //limpar os dados do formulário
-  const limparFormulario = () =>{
+  const limparFormulario = () => {
     setDadosFormulario("");
-  }
+  };
 
   //salvar cliente
-  const salvarFormulario =(e)=>{
+  const salvarFormulario = (e) => {
     e.preventDefault();
-    dadosFormulario? console.log(dadosFormulario): console.log("Sem dados");
-  }
+    dadosFormulario ? console.log(dadosFormulario) : console.log("Sem dados");
+  };
 
   //buscar clientes do store
   const clientes = useSelector((state) => state.clienteStore.clientes);
@@ -50,11 +52,9 @@ export default function FormCliente({clienteSelecionado}) {
           onSubmit={salvarFormulario}
           noValidate
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            columnCount: "2",
             width: "100%",
             gap: 2,
+            justifyContent: "center",
           }}
         >
           <Grid
@@ -67,16 +67,48 @@ export default function FormCliente({clienteSelecionado}) {
               spacing={{ xs: 2, md: 2 }}
               size={{ xs: 2, sm: 4, md: 4 }}
             >
-              <CustomTextField disabled={true} onChange={handleEdicaoFormulario} type="number" name="id" value={dadosFormulario.id || ""} label="Código do Cliente"></CustomTextField>
-              <CustomTextField required={true} type="text" onChange={handleEdicaoFormulario} name="representante" value={dadosFormulario.representante || ""} label="Representante Responsável"></CustomTextField>
+              <CustomTextField
+                disabled={true}
+                onChange={handleEdicaoFormulario}
+                type="text"
+                name="codigo"
+                value={dadosFormulario.codigo || ""}
+                label="Código"
+              ></CustomTextField>
+              <CustomTextField
+                required={true}
+                type="text"
+                onChange={handleEdicaoFormulario}
+                name="representante"
+                value={dadosFormulario.representante || ""}
+                label="Representante"
+              ></CustomTextField>
+              <CustomTextField
+                required={true}
+                onChange={handleEdicaoFormulario}
+                name="dataAlteracao"
+                label="Data Alteracao"
+              ></CustomTextField>
             </Grid>
             <Grid
               container
               spacing={{ xs: 2, md: 2 }}
               size={{ xs: 2, sm: 4, md: 4 }}
             >
-              <CustomTextField required={true} type="text" onChange={handleEdicaoFormulario} name="nome" value={dadosFormulario.nome || ""} label="Nome do Cliente"></CustomTextField>
-              <CustomTextField required={true}  type="text" onChange={handleEdicaoFormulario} name="codigoFecial" value={dadosFormulario.codigoFecial || ""} label="Codigo Fecial"></CustomTextField>
+              <CustomTextField
+                required={true}
+                type="text"
+                onChange={handleEdicaoFormulario}
+                name="nome"
+                value={dadosFormulario.nome || ""}
+                label="Nome"
+              ></CustomTextField>
+              <CustomTextField
+                required={true}
+                onChange={handleEdicaoFormulario}
+                name="dataCadastro"
+                label="Data Cadastro"
+              ></CustomTextField>
             </Grid>
           </Grid>
           <Stack
@@ -89,10 +121,13 @@ export default function FormCliente({clienteSelecionado}) {
               gap: "6px",
             }}
           >
-            <CustomMediumButton type="submit" color="primary">Salvar</CustomMediumButton>
-            <CustomMediumButton onClick={limparFormulario} color="warning">Limpar</CustomMediumButton>
+            <CustomMediumButton type="submit" color="primary">
+              Salvar
+            </CustomMediumButton>
+            <CustomMediumButton onClick={limparFormulario} color="warning">
+              Limpar
+            </CustomMediumButton>
             <CustomMediumButton color="error">Excluir</CustomMediumButton>
-
           </Stack>
         </Box>
       </Paper>
