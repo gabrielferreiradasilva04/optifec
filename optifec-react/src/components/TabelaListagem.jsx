@@ -1,13 +1,13 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import { Box, IconButton } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import CustomTextField from "./defaultComponents/CustomTextField";
-import SearchIcon from "@mui/icons-material/Search";
+import { Search, Add } from "@mui/icons-material";
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function TabelaListagem({ colunas, itens, handleSelectOnClick }) {
+export default function TabelaListagem({ colunas, itens, handleSelectOnClick, novoRegistro, titulo }) {
   return (
     <Paper
       sx={{
@@ -20,9 +20,7 @@ export default function TabelaListagem({ colunas, itens, handleSelectOnClick }) 
       }}
       elevation={0}
     >
-      <Box>
-        <h3>Dados Cadastrados</h3>
-      </Box>
+      <h2>{titulo}</h2>
       <Box
         sx={{
           display: "flex",
@@ -33,7 +31,10 @@ export default function TabelaListagem({ colunas, itens, handleSelectOnClick }) 
       >
         <CustomTextField label="Pesquisar" />
         <IconButton aria-label="pesquisar">
-          <SearchIcon />
+          <Search />
+        </IconButton>
+        <IconButton onClick={novoRegistro} aria-label="pesquisar">
+          <Add />
         </IconButton>
       </Box>
 
@@ -43,11 +44,12 @@ export default function TabelaListagem({ colunas, itens, handleSelectOnClick }) 
         initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
         sx={{ padding: 2 }}
-        onRowClick={(params) => handleSelectOnClick(params.row)}
+    //  onRowClick={(params) => handleSelectOnClick(params.row)}
         isRowSelectable={()=>true}
         showCellVerticalBorder
         hideFooterSelectedRowCount
       />
+      
     </Paper>
   );
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
-import FormCliente from "../components/forms/FormCliente";
+import { IconButton } from "@mui/material";
+import { Edit, Delete } from "@mui/icons-material";
+import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
 
 export default function Cliente() {
@@ -13,6 +15,31 @@ export default function Cliente() {
       field: "codigoFecial",
       headerName: "Cod. Fec",
       flex: 1,
+    },
+    {
+      field: "actions",
+      headerName: "Ações",
+      width: 150,
+      renderCell: (params) => (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          <IconButton
+            onClick={cliqueAbrir}
+            size="small"
+            style={{ marginRight: 8 }}
+          >
+            <Edit />
+          </IconButton>
+          <IconButton size="small">
+            <Delete />
+          </IconButton>
+        </div>
+      ),
     },
   ];
   const itens = [
@@ -26,37 +53,38 @@ export default function Cliente() {
     { id: 8, nome: "Frances", representante: "Rossini", codigo: 36 },
     { id: 9, nome: "Roxie", representante: "Harvey", codigo: 65 },
   ];
-  //cliente sendo alterado
-  const [clienteSelecionado, setClienteSelecionado] = useState(null);
 
-  const handleSelectOnClick = (cliente) => {  
-    if(cliente){
-      setClienteSelecionado(cliente);
-    }
+  //variaveis e funções do dialog
+  const [dialogCliente, setDialogCliente] = useState(false);
+
+  const cliqueAbrir = () => {
+    setDialogCliente(true);
   };
+  const cliqueFechar = () => {
+    setDialogCliente(false);
+  };
+  //variaveis e funções do dialog
 
   return (
     <>
       <Box
         sx={{
+          alignItems: "center",
+          justifyContent: "center",
           display: "flex",
-          flexDirection: "column",
-          gap: "20px",
         }}
       >
-        <Box>
-          <FormCliente clienteSelecionado={clienteSelecionado}/>
-        </Box>
-        <Box
-          sx={{
-            alignItems: "center",
-            justifyContent: "center",
-            display: "flex",
-          }}
-        >
-          <TabelaListagem handleSelectOnClick={handleSelectOnClick} colunas={colunas} itens={itens} />
-        </Box>
+        <TabelaListagem
+          novoRegistro={cliqueAbrir}
+          colunas={colunas}
+          itens={itens}
+          titulo="Cadastro de Clientes"
+        />
       </Box>
+      <FormularioClienteDialog
+        dialog={dialogCliente}
+        cliqueFechar={cliqueFechar}
+      />
     </>
   );
 }
