@@ -2,7 +2,7 @@ import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
 import { IconButton } from "@mui/material";
-import { Edit, Delete } from "@mui/icons-material";
+import { MoreHoriz } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
 
@@ -28,15 +28,8 @@ export default function Cliente() {
             alignContent: "center",
           }}
         >
-          <IconButton
-            onClick={cliqueAbrir}
-            size="small"
-            style={{ marginRight: 8 }}
-          >
-            <Edit />
-          </IconButton>
-          <IconButton size="small">
-            <Delete />
+          <IconButton size="compact">
+            <MoreHoriz />
           </IconButton>
         </div>
       ),

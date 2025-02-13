@@ -7,7 +7,13 @@ import { Search, Add } from "@mui/icons-material";
 
 const paginationModel = { page: 0, pageSize: 5 };
 
-export default function TabelaListagem({ colunas, itens, handleSelectOnClick, novoRegistro, titulo }) {
+export default function TabelaListagem({
+  colunas,
+  itens,
+  handleSelectOnClick,
+  novoRegistro,
+  titulo,
+}) {
   return (
     <Paper
       sx={{
@@ -30,26 +36,26 @@ export default function TabelaListagem({ colunas, itens, handleSelectOnClick, no
         }}
       >
         <CustomTextField label="Pesquisar" />
-        <IconButton aria-label="pesquisar">
+        <IconButton size="small" aria-label="pesquisar">
           <Search />
         </IconButton>
-        <IconButton onClick={novoRegistro} aria-label="pesquisar">
+        <IconButton size="small" onClick={novoRegistro} aria-label="pesquisar">
           <Add />
         </IconButton>
       </Box>
 
       <DataGrid
+        density="compact"
         rows={itens}
         columns={colunas}
         initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
         sx={{ padding: 2 }}
-    //  onRowClick={(params) => handleSelectOnClick(params.row)}
-        isRowSelectable={()=>true}
+        //  onRowClick={(params) => handleSelectOnClick(params.row)}
+        isRowSelectable={() => true}
         showCellVerticalBorder
         hideFooterSelectedRowCount
       />
-      
     </Paper>
   );
 }

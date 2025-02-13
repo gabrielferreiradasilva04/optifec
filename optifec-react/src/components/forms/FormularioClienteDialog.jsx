@@ -32,17 +32,36 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
           <DialogContentText>
             Preencha todos os campos requeridos do formulário
           </DialogContentText>
-          <Box sx={{justifyContent:"center", display:"flex", gap:"10px", flexDirection:"column"}}>
-          <TextField required margin="dense" label="Codigo"></TextField>
-          <TextField required margin="dense" label="Nome"></TextField>
-          <TextField required margin="dense" label="Descrição"></TextField>
-          <TextField required margin="dense" label="Data Cadastro"></TextField>
-          <TextField required margin="dense" label="Data Alteração"></TextField>
+          <Box
+            sx={{
+              justifyContent: "center",
+              display: "flex",
+              gap: "10px",
+              flexDirection: "column",
+            }}
+          >
+            <TextField required margin="dense" label="Codigo"></TextField>
+            <TextField required margin="dense" label="Nome"></TextField>
+            <TextField required margin="dense" label="Descrição"></TextField>
+            <TextField
+              required
+              margin="dense"
+              label="Data Cadastro"
+            ></TextField>
+            <TextField
+              required
+              margin="dense"
+              label="Data Alteração"
+            ></TextField>
           </Box>
         </DialogContent>
-        <DialogActions >
-          <Button variant="contained" type="submit">Salvar</Button>
-          <Button variant="contained" onClick={cliqueFechar} >Cancelar</Button>
+        <DialogActions>
+          <Button variant="contained" type="submit">
+            Salvar
+          </Button>
+          <Button variant="contained" onClick={cliqueFechar}>
+            Cancelar
+          </Button>
         </DialogActions>
       </Dialog>
     </>
