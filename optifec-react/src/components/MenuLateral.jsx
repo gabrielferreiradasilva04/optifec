@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import BarraNavegacao from "./BarraNavegacao";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material";
 
 export default function MenuLateral({ titulo, itensMenu }) {
   const [open, setOpen] = React.useState(false);
@@ -22,6 +23,8 @@ export default function MenuLateral({ titulo, itensMenu }) {
   //Navegação dos links
   const navigate = useNavigate();
 
+  //puxar o tema atual
+  const theme = useTheme();
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
@@ -39,8 +42,22 @@ export default function MenuLateral({ titulo, itensMenu }) {
 
   return (
     <div>
-      <BarraNavegacao mostrarBotaoEntrar={false} mostrarIconeDrawer={true} toggleDrawer={toggleDrawer(true)} titulo={titulo} />
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <BarraNavegacao
+        mostrarBotaoEntrar={false}
+        mostrarIconeDrawer={true}
+        toggleDrawer={toggleDrawer(true)}
+        titulo={titulo}
+      />
+      <Drawer
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            backgroundColor: theme.palette.primary.main,
+            color: "white",
+          },
+        }}
+      >
         {DrawerList}
       </Drawer>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, Button, IconButton, useTheme } from "@mui/material";
 import CustomTextField from "./defaultComponents/CustomTextField";
 import { Search, Add } from "@mui/icons-material";
 
@@ -14,6 +14,9 @@ export default function TabelaListagem({
   novoRegistro,
   titulo,
 }) {
+  //puxar o tema
+  const theme = useTheme();
+
   return (
     <Paper
       sx={{

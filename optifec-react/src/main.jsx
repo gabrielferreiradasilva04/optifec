@@ -15,16 +15,16 @@ import { ThemeProviderWrapper } from "./theme/ThemeContext.jsx";
 
 //imports do redux
 import { Provider } from "react-redux";
-import {store} from "./store/store.jsx"
+import { store } from "./store/store.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-    <CssBaseline>
-      <ThemeProviderWrapper>
-        <App />
-      </ThemeProviderWrapper>
-    </CssBaseline>
+      <CssBaseline>
+        <ThemeProviderWrapper>
+          <App />
+        </ThemeProviderWrapper>
+      </CssBaseline>
     </Provider>
   </StrictMode>
 );

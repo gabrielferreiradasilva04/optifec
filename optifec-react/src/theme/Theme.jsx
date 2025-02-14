@@ -10,6 +10,7 @@ import {
   red,
   yellow,
   orange,
+  blueGrey,
 } from "@mui/material/colors";
 
 export const lightTheme = createTheme(
@@ -17,8 +18,8 @@ export const lightTheme = createTheme(
     palette: {
       mode: "light",
       primary: {
-        main: green[700],
-        dark: green[900],
+        main: blueGrey[800],
+        dark: blueGrey[900],
       },
       secondary: {
         main: "#9c27b0",
@@ -50,7 +51,7 @@ export const darkTheme = createTheme(
     palette: {
       mode: "dark",
       primary: {
-        main: green[900],
+        main: blueGrey[900],
       },
       secondary: {
         main: "#ce93d8",

@@ -11,20 +11,25 @@ import { useThemeContext } from "../theme/ThemeContext";
 import { useTheme } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 
-export default function BarraNavegacao({ toggleDrawer, titulo, mostrarIconeDrawer, mostrarBotaoEntrar }) {
+export default function BarraNavegacao({
+  toggleDrawer,
+  titulo,
+  mostrarIconeDrawer,
+  mostrarBotaoEntrar,
+}) {
   const corBotaoEntrar = grey["A100"];
   const { isDarkMode, toggleTheme } = useThemeContext();
   const theme = useTheme(); // Acessa o tema atual
   return (
     <>
-        <AppBar
-          position="fixed"
-          elevation={0}
-          sx={{ backgroundColor: theme.palette.primary.main }}
-        >
-          <Toolbar>
-            {mostrarIconeDrawer && (
-              <IconButton
+      <AppBar
+        position="fixed"
+        elevation={0}
+        sx={{ backgroundColor: theme.palette.primary.main }}
+      >
+        <Toolbar variant="dense">
+          {mostrarIconeDrawer && (
+            <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -34,27 +39,35 @@ export default function BarraNavegacao({ toggleDrawer, titulo, mostrarIconeDrawe
             >
               <MenuIcon />
             </IconButton>
-            )}
-            
+          )}
 
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {titulo}
-            </Typography>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick={toggleTheme}
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {titulo}
+          </Typography>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={toggleTheme}
+          >
+            <DarkModeIcon />
+          </IconButton>
+          {mostrarBotaoEntrar && (
+            <Button
+              sx={{
+                backgroundColor: corBotaoEntrar,
+                color: "green",
+                borderRadius: "10px",
+              }}
+              variant="contained"
             >
-              <DarkModeIcon />
-            </IconButton>
-            {mostrarBotaoEntrar && (
-            <Button sx={{backgroundColor: corBotaoEntrar, color:'green', borderRadius:'10px'}} variant="contained">Entrar</Button>
-            )}
-          </Toolbar>
-        </AppBar>
+              Entrar
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
     </>
   );
 }
