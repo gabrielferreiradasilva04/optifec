@@ -13,7 +13,8 @@ import {
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
-import RodapeAplicacao from "../components/RodapeAplicacao";
+import RodapeAplicacao from "../components/rodapeAplicacao/RodapeAplicacao";
+import { Divider } from "@mui/material";
 
 export default function DefaultLayout() {
   const itensMenu = [
@@ -59,12 +60,13 @@ export default function DefaultLayout() {
           padding: "16px",
           margin: "16px",
           marginTop: "80px",
-          height: "100vh",
         }}
       >
         <Outlet />
-        <RodapeAplicacao sx={{ my: 4 }} />
+        
       </Box>
+      <Divider/>
+      <RodapeAplicacao/>
     </>
   );
 }
