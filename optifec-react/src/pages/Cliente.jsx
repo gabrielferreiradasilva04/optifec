@@ -5,8 +5,24 @@ import { IconButton } from "@mui/material";
 import { MoreHoriz } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function Cliente() {
+  //ancoras do menu
+  const [ancoraMenuCrud, setAncoraMenuCrud] = useState(null);
+  const menuCrudAberto = useState(false);
+
+  //função para abrir o menu crud
+  const abrirMenuCrud = (event) => {
+    setAncoraMenuCrud(event.currentTarget);
+  };
+
+  //função para fechar o menu crud
+  const fecharMenuCrud = () => {
+    setAncoraMenuCrud(null);
+  };
+
   const colunas = [
     { field: "id", headerName: "Código do Cliente", flex: 1 },
     { field: "nome", headerName: "Nome Cliente", flex: 1 },
@@ -28,9 +44,29 @@ export default function Cliente() {
             alignContent: "center",
           }}
         >
-          <IconButton size="compact">
+          <IconButton
+            size="compact"
+            id="botao-menu-crud"
+            aria-controls={menuCrudAberto ? "menu-crud" : undefined}
+            aria-haspopup="true"
+            aria-expanded={menuCrudAberto ? "true" : undefined}
+            onClick={abrirMenuCrud}
+          >
             <MoreHoriz />
           </IconButton>
+          <Menu
+            id="menu-crud"
+            anchorEl={ancoraMenuCrud}
+            open={menuCrudAberto}
+            onClose={fecharMenuCrud}
+            MenuListProps={{
+              "aria-labelledby": "botao-menu-crud",
+            }}
+          >
+            <MenuItem onClick={fecharMenuCrud}>Profile</MenuItem>
+            <MenuItem onClick={fecharMenuCrud}>My account</MenuItem>
+            <MenuItem onClick={fecharMenuCrud}>Logout</MenuItem>
+          </Menu>
         </div>
       ),
     },
