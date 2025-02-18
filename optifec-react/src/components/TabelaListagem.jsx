@@ -1,7 +1,7 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import { Box, Button, IconButton, useTheme } from "@mui/material";
+import { Box, Button} from "@mui/material";
 import CustomTextField from "./defaultComponents/CustomTextField";
 import { Search, Add } from "@mui/icons-material";
 
@@ -14,9 +14,7 @@ export default function TabelaListagem({
   novoRegistro,
   titulo,
 }) {
-  //puxar o tema
-  const theme = useTheme();
-
+  
   return (
     <Paper
       sx={{
@@ -39,12 +37,12 @@ export default function TabelaListagem({
         }}
       >
         <CustomTextField label="Pesquisar" />
-        <IconButton size="small" aria-label="pesquisar">
+        <Button variant="contained" size="small" aria-label="pesquisar">
           <Search />
-        </IconButton>
-        <IconButton size="small" onClick={novoRegistro} aria-label="pesquisar">
+        </Button>
+        <Button variant="contained" size="small" onClick={novoRegistro} aria-label="pesquisar">
           <Add />
-        </IconButton>
+        </Button>
       </Box>
 
       <DataGrid

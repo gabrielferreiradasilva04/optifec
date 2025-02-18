@@ -2,7 +2,7 @@ import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
 import { Button} from "@mui/material";
-import { EditOutlined } from "@mui/icons-material";
+import { EditOutlined, Padding } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
 import Menu from "@mui/material/Menu";
