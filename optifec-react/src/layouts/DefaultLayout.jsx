@@ -9,14 +9,19 @@ import {
   MonetizationOn,
   Architecture,
   Science,
-  Article
+  Article,
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
 import RodapeAplicacao from "../components/rodapeAplicacao/RodapeAplicacao";
 import { Divider } from "@mui/material";
-
+import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 export default function DefaultLayout() {
+  //pega a localização atual da página
+  const location = useLocation();
+  //carrega os itens do menu lateral
+
   const itensMenu = [
     {
       titulo: "Menu Principal",
@@ -46,7 +51,6 @@ export default function DefaultLayout() {
       patch: "/protocolo",
       icone: <Article />,
     },
-
   ];
   return (
     <>
@@ -62,11 +66,17 @@ export default function DefaultLayout() {
           marginTop: "80px",
         }}
       >
-        <Outlet />
-        
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 1, y: 10 }}
+            animate={{ opacity: 1, y: 0}}
+            transition={{ duration: 0.2}}
+          >
+            <Outlet />
+          </motion.div>
       </Box>
-      <Divider/>
-      <RodapeAplicacao/>
+      <Divider />
+      <RodapeAplicacao />
     </>
   );
 }

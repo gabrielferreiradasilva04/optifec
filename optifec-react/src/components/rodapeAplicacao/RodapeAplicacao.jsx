@@ -36,38 +36,11 @@ export default function RodapeAplicacao({ ...props }) {
         <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
           <Facebook />
           <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
-            Join the newsletter
+            <Link>Acesse nosso grupo no Facebook!</Link>
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-            Subscribe for weekly updates. No spams ever!
+            Se inscreva para ficar por dentro das atualizações!
           </Typography>
-          <InputLabel htmlFor="email-newsletter">Email</InputLabel>
-          <Stack direction="row" spacing={1} useFlexGap>
-            <TextField
-              id="email-newsletter"
-              hiddenLabel
-              size="small"
-              variant="outlined"
-              fullWidth
-              aria-label="Enter your email address"
-              placeholder="Your email address"
-              slotProps={{
-                htmlInput: {
-                  autoComplete: 'off',
-                  'aria-label': 'Enter your email address',
-                },
-              }}
-              sx={{ width: '250px' }}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              sx={{ flexShrink: 0 }}
-            >
-              Subscribe
-            </Button>
-          </Stack>
         </Box>
       </Box>
       <Box
@@ -80,18 +53,6 @@ export default function RodapeAplicacao({ ...props }) {
         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
           Product
         </Typography>
-        <Link color="text.secondary" variant="body2" href="#">
-          Features
-        </Link>
-        <Link color="text.secondary" variant="body2" href="#">
-          Testimonials
-        </Link>
-        <Link color="text.secondary" variant="body2" href="#">
-          Highlights
-        </Link>
-        <Link color="text.secondary" variant="body2" href="#">
-          Pricing
-        </Link>
         <Link color="text.secondary" variant="body2" href="#">
           FAQs
         </Link>
@@ -107,14 +68,15 @@ export default function RodapeAplicacao({ ...props }) {
           Company
         </Typography>
         <Link color="text.secondary" variant="body2" href="#">
-          About us
+          Sobre nós
         </Link>
         <Link color="text.secondary" variant="body2" href="#">
-          Careers
+          Localização
         </Link>
         <Link color="text.secondary" variant="body2" href="#">
-          Press
+          Outros serviços
         </Link>
+
       </Box>
       <Box
         sx={{
@@ -124,16 +86,13 @@ export default function RodapeAplicacao({ ...props }) {
         }}
       >
         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-          Legal
+          Informações Legais
         </Typography>
         <Link color="text.secondary" variant="body2" href="#">
-          Terms
+          Termos e condições
         </Link>
         <Link color="text.secondary" variant="body2" href="#">
-          Privacy
-        </Link>
-        <Link color="text.secondary" variant="body2" href="#">
-          Contact
+          Contato
         </Link>
       </Box>
     </Box>
@@ -149,13 +108,13 @@ export default function RodapeAplicacao({ ...props }) {
     >
       <div>
         <Link color="text.secondary" variant="body2" href="#">
-          Privacy Policy
+          Política de privacidade
         </Link>
         <Typography sx={{ display: 'inline', mx: 0.5, opacity: 0.5 }}>
           &nbsp;•&nbsp;
         </Typography>
         <Link color="text.secondary" variant="body2" href="#">
-          Terms of Service
+          Optifec
         </Link>
         <Copyright />
       </div>

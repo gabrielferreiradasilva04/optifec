@@ -13,6 +13,7 @@ import Verificacao from "../pages/Verificacao";
 import DefaultLayout from "../layouts/DefaultLayout";
 import Index from "../pages/Index";
 import AuthLayout from "../layouts/AuthLayout";
+import LayoutInicial from "../layouts/LayoutInicial";
 export const CustomRoutes = () => {
   return (
     <BrowserRouter>
@@ -27,10 +28,12 @@ export const CustomRoutes = () => {
           <Route path="protocolo" element={<Protocolo />}></Route>
           <Route path="teste" element={<Teste />}></Route>
           <Route path="verificacao" element={<Verificacao />}></Route>
-          <Route path="pagina-inicial" element={<Index />}></Route>
         </Route>
         <Route path="/" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
+        </Route>
+        <Route path="/" element={<LayoutInicial />}>
+          <Route path="pagina-inicial" element={<Index/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

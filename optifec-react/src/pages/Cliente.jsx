@@ -1,7 +1,7 @@
 import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
-import { Button} from "@mui/material";
+import { Button } from "@mui/material";
 import { EditOutlined, Padding } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
@@ -46,7 +46,7 @@ export default function Cliente() {
             alignContent: "center",
           }}
         >
-          <CrudBotaoEdicao/>
+          <CrudBotaoEdicao />
         </div>
       ),
     },
