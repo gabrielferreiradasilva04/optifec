@@ -82,6 +82,9 @@ export default function FormLogin() {
               <Login />
             </Button>
             <Link variant="button" href="#" underline="always">
+              Entrar como Empresa
+            </Link>
+            <Link variant="button" href="#" underline="always">
               Não possuo uma conta
             </Link>
         </Box>

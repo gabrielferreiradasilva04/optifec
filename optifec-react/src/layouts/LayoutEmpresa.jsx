@@ -10,6 +10,9 @@ import {
   Architecture,
   Science,
   Article,
+  AccountTree,
+  Sell,
+  SupportAgent,
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
@@ -28,11 +31,11 @@ export default function DefaultLayout() {
       patch: "/menu-principal",
       icone: <House />,
     },
+    { titulo: "Setores", patch: "/setor", icone: <AccountTree /> },
     { titulo: "Clientes", patch: "/cliente", icone: <Group /> },
-    { titulo: "FolowUp", patch: "/followup", icone: <Schema /> },
     {
-      titulo: "Orçamentos",
-      patch: "/orcamento",
+      titulo: "Pagamentos",
+      patch: "/pagamento",
       icone: <MonetizationOn />,
     },
     {
@@ -40,22 +43,22 @@ export default function DefaultLayout() {
       patch: "/projeto",
       icone: <Architecture />,
     },
-    { titulo: "Testes", patch: "/teste", icone: <Science /> },
-    {
-      titulo: "Estatisticas",
-      patch: "/estatistica",
-      icone: <Analytics />,
-    },
     {
       titulo: "Protocolos",
       patch: "/protocolo",
       icone: <Article />,
     },
+    { titulo: "Produtos", patch: "/produto", icone: <Sell /> },
+    {
+      titulo: "Representantes",
+      patch: "/representante",
+      icone: <SupportAgent />,
+    },
   ];
   return (
     <>
       <MenuLateral
-        titulo={"Optifec - Integração Empresarial"}
+        titulo={"Administração"}
         itensMenu={itensMenu}
       />
       <Box
@@ -66,14 +69,14 @@ export default function DefaultLayout() {
           marginTop: "80px",
         }}
       >
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0}}
-            transition={{ duration: 0.2}}
-          >
-            <Outlet />
-          </motion.div>
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: 'tween', restDelta: 0.5 }}
+        >
+          <Outlet />
+        </motion.div>
       </Box>
       <Divider />
       <RodapeAplicacao />

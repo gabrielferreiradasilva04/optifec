@@ -45,7 +45,10 @@ export default function MenuLateral({ titulo, itensMenu }) {
       <BarraNavegacao
         mostrarBotaoEntrar={false}
         mostrarIconeDrawer={true}
+        mostrarBotaoNotificacoes={true}
         toggleDrawer={toggleDrawer(true)}
+        mostrarBotaoPerfil={true}
+        mostrarPesquisar={true}
         titulo={titulo}
       />
       <Drawer open={open} onClose={toggleDrawer(false)} variant="temporary">
