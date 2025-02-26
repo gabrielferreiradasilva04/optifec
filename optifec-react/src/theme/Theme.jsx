@@ -2,15 +2,9 @@ import { createTheme } from "@mui/material/styles";
 import { ptBR } from "../utils/dataGridPTBR";
 
 import {
-  teal,
-  green,
   lightGreen,
-  blue,
-  lightBlue,
   red,
-  yellow,
   orange,
-  blueGrey,
 } from "@mui/material/colors";
 
 export const lightTheme = createTheme(
@@ -18,19 +12,20 @@ export const lightTheme = createTheme(
     palette: {
       mode: "light",
       primary: {
-        main: blueGrey[800],
-        dark: blueGrey[900],
+        main: "#093C2D",
+        second:"#D8F2CD"
       },
       secondary: {
-        main: "#9c27b0",
+        main: "#63A593",
+        second: "#63A593"
       },
       background: {
         default: "#f5f5f5",
         paper: "#ffffff",
       },
       text: {
-        primary: "#000000",
-        secondary: "#4f4f4f",
+        primary: "#4f4f4f",
+        secondary: "#000000",
       },
       error: {
         main: red[500],
@@ -51,10 +46,12 @@ export const darkTheme = createTheme(
     palette: {
       mode: "dark",
       primary: {
-        main: blueGrey[900],
+        main: "#093C2D",
+        second:"#D8F2C"
       },
       secondary: {
-        main: "#ce93d8",
+        main: "#3B6654",
+        second: "#63A593"
       },
       background: {
         default: "#121212",

@@ -5,19 +5,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, Button, TextField, Tooltip } from "@mui/material";
+import { Button, FormControl, InputAdornment, OutlinedInput, TextField, Tooltip } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeContext } from "../theme/ThemeContext";
 import { useTheme } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import {
-  AccountBox,
-  AccountCircle,
-  Login,
-  Notifications,
-} from "@mui/icons-material";
+import { AccountCircle, Notifications } from "@mui/icons-material";
+import { Search } from "@mui/icons-material";
 export default function BarraNavegacao({
   toggleDrawer,
   titulo,
@@ -25,7 +20,7 @@ export default function BarraNavegacao({
   mostrarBotaoEntrar,
   mostrarBotaoNotificacoes,
   mostrarBotaoPerfil,
-  mostrarPesquisar
+  mostrarPesquisar,
 }) {
   //cor do botao principal
   const corBotaoEntrar = grey["A100"];
@@ -74,12 +69,18 @@ export default function BarraNavegacao({
             {titulo}
           </Typography>
           {mostrarPesquisar && (
-            <Box>
-            <TextField
-              label="pesquisar"
-              variant="outlined"         
-            ></TextField>
-          </Box>
+            <FormControl sx={{ width: { xs: '100%', md: '25ch' }, mr: 1  }} variant="outlined">
+              <OutlinedInput
+                size="small"
+                placeholder="Pesquisar..."
+                sx={{ flexGrow: 1, backgroundColor:"white", color:"black", borderRadius:"10px" }}
+                startAdornment={
+                  <InputAdornment position="start" sx={{ color: 'black' }}>
+                    <Search/>
+                  </InputAdornment>
+                }
+              ></OutlinedInput>
+            </FormControl>
           )}
           <Tooltip title="Alterar Tema">
             <Button color="inherit" sx={{ mr: 1 }} onClick={toggleTheme}>
@@ -97,11 +98,13 @@ export default function BarraNavegacao({
           {mostrarBotaoEntrar && (
             <Tooltip title="Entrar">
               <Button
-                color="inherit"
+                size="small"
+                color="secondary"
+                variant="outlined"
                 onClick={() => navegarParaLogin()}
                 loading={loading}
               >
-                <Login />
+                Entrar
               </Button>
             </Tooltip>
           )}

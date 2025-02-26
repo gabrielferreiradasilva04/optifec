@@ -4,10 +4,12 @@ import {
   Button,
   Card,
   Checkbox,
+  Divider,
   FormControlLabel,
   FormGroup,
   InputAdornment,
   Link,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -20,56 +22,69 @@ export default function FormLogin() {
         sx={{
           display: "flex",
           flexDirection: "column",
+          alignSelf: "center",
           gap: "30px",
-          padding: "16px",
+          padding: "60px",
+          width: "100%",
+          maxWidth: "450px",
+          borderRadius: "20px",
         }}
-        elevation={10}
+        elevation={12}
+        autoFocus
       >
-        <Box>
-          <img
-            style={{ width: "80px" }}
-            src="/public/simples-sem-fundo.png"
-            alt="LogoOtifec"
-          />
-        </Box>
-        <Typography component="h1" variant="h4">
-          Bem vindo!
+        <Typography
+          sx={{ fontWeight: "bold", textAlign:"center" }}
+          component="h1"
+          variant="h4"
+        >
+          Bem vindo de volta!
         </Typography>
+        <Divider />
         <Box
-          sx={{ display: "flex", flexDirection: "column", gap: "15px" }}
+          sx={{ display: "flex", flexDirection: "column", gap:"10px"}}
           component="form"
           noValidate
           onSubmit={null}
         >
-          <TextField
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle />
-                  </InputAdornment>
-                ),
-              },
-            }}
-            fullWidth
-            label="E-mail"
-            placeholder="fulano@dominio.com"
-          ></TextField>
-          <TextField
-            type="password"
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Lock />
-                  </InputAdornment>
-                ),
-              },
-            }}
-            fullWidth
-            placeholder="********"
-            label="Senha"
-          ></TextField>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+            <TextField
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+              fullWidth
+              label="E-mail"
+              placeholder="fulano@dominio.com"
+              size="small"
+            ></TextField>
+            <TextField
+              type="password"
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Lock />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+              fullWidth
+              placeholder="********"
+              label="Senha"
+              size="small"
+            ></TextField>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "end", margin: "0" }}>
+            <Link color="textPrimary" variant="body1" href="/cadastro" underline="always">
+              Esqueci minha senha
+            </Link>
+          </Box>
+          <Divider/>
           <Box>
             <FormGroup>
               <FormControlLabel
@@ -78,15 +93,11 @@ export default function FormLogin() {
               ></FormControlLabel>
             </FormGroup>
           </Box>
-            <Button variant="contained" fullWidth>
-              <Login />
+          <Stack sx={{ gap: "10px", display: "flex" }}>
+            <Button sx={{borderRadius:"10px"}} size="large" variant="contained" fullWidth>
+              Entrar
             </Button>
-            <Link variant="button" href="#" underline="always">
-              Entrar como Empresa
-            </Link>
-            <Link variant="button" href="#" underline="always">
-              Não possuo uma conta
-            </Link>
+          </Stack>
         </Box>
       </Card>
     </>

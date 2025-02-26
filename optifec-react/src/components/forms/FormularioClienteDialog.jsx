@@ -29,9 +29,6 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
       >
         <DialogTitle>Formulário de Cliente</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Preencha todos os campos requeridos do formulário
-          </DialogContentText>
           <Box
             sx={{
               justifyContent: "center",
@@ -40,18 +37,35 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
               flexDirection: "column",
             }}
           >
-            <TextField required margin="dense" label="Codigo"></TextField>
-            <TextField required margin="dense" label="Nome"></TextField>
-            <TextField required margin="dense" label="Descrição"></TextField>
             <TextField
+              variant="filled"
               required
-              margin="dense"
+              size="small"
+              label="Codigo"
+            ></TextField>
+            <TextField
+              variant="filled"
+              required
+              size="small"
+              label="Nome"
+            ></TextField>
+            <TextField
+              variant="filled"
+              size="small"
               label="Data Cadastro"
             ></TextField>
             <TextField
-              required
-              margin="dense"
+              variant="filled"
+              size="small"
               label="Data Alteração"
+            ></TextField>
+            <TextField
+              multiline
+              rows={4}
+              variant="filled"
+              required
+              size="small"
+              label="Descrição"
             ></TextField>
           </Box>
         </DialogContent>

@@ -18,6 +18,7 @@ import Setor from "../pages/Setor"
 import Representante from "../pages/Representante"
 import Pagamento from "../pages/Pagamento"
 import Produto from "../pages/Produto"
+import Cadastro from "../pages/Cadastro";
 export const CustomRoutes = () => {
   return (
     <BrowserRouter>
@@ -38,7 +39,10 @@ export const CustomRoutes = () => {
           <Route path="produto" element={<Produto />}></Route>
         </Route>
         <Route path="/" element={<AuthLayout />}>
+          {/* rotas de login */}
           <Route path="login" element={<Login />} />
+          {/* rotas de cadastro */}
+          <Route path="cadastro" element={<Cadastro />} />
         </Route>
         <Route path="/" element={<LayoutInicial />}>
           <Route path="pagina-inicial" element={<Index/>}></Route>

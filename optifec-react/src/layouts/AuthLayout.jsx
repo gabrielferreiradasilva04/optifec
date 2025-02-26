@@ -9,20 +9,18 @@ export default function AuthLayout() {
   const location = useLocation();
   return (
     <>
-      <BarraNavegacao mostrarBotaoEntrar={false} mostrarIconeDrawer={false} />
       <Box
         sx={{
           borderRadius: "8px",
           padding: "16px",
           margin: "16px",
-          marginTop: "80px",
         }}
       >
           <motion.div
-            key={location.pathname} 
-            initial={{ opacity: 0, y: 10 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.2 }}
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'tween', restDelta: 0.5 }}
           >
             <Outlet />
           </motion.div>
