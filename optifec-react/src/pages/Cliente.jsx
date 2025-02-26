@@ -1,17 +1,19 @@
 import React from "react";
 import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
-import { IconButton } from "@mui/material";
-import { MoreHoriz } from "@mui/icons-material";
+import { Button } from "@mui/material";
+import { EditOutlined, Padding } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import CrudMenuItem from "../components/menus/CrudMenuItem";
+import CrudBotaoEdicao from "../components/menus/CrudBotaoEdicao";
 
 export default function Cliente() {
   //ancoras do menu
   const [ancoraMenuCrud, setAncoraMenuCrud] = useState(null);
-  const menuCrudAberto = useState(false);
+  const menuCrudAberto = Boolean(ancoraMenuCrud);
 
   //função para abrir o menu crud
   const abrirMenuCrud = (event) => {
@@ -44,29 +46,7 @@ export default function Cliente() {
             alignContent: "center",
           }}
         >
-          <IconButton
-            size="compact"
-            id="botao-menu-crud"
-            aria-controls={menuCrudAberto ? "menu-crud" : undefined}
-            aria-haspopup="true"
-            aria-expanded={menuCrudAberto ? "true" : undefined}
-            onClick={abrirMenuCrud}
-          >
-            <MoreHoriz />
-          </IconButton>
-          <Menu
-            id="menu-crud"
-            anchorEl={ancoraMenuCrud}
-            open={menuCrudAberto}
-            onClose={fecharMenuCrud}
-            MenuListProps={{
-              "aria-labelledby": "botao-menu-crud",
-            }}
-          >
-            <MenuItem onClick={fecharMenuCrud}>Profile</MenuItem>
-            <MenuItem onClick={fecharMenuCrud}>My account</MenuItem>
-            <MenuItem onClick={fecharMenuCrud}>Logout</MenuItem>
-          </Menu>
+          <CrudBotaoEdicao />
         </div>
       ),
     },

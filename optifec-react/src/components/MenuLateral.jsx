@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import BarraNavegacao from "./BarraNavegacao";
 import { useNavigate } from "react-router-dom";
-import { useTheme } from "@mui/material";
+import { Divider, useTheme } from "@mui/material";
 
 export default function MenuLateral({ titulo, itensMenu }) {
   const [open, setOpen] = React.useState(false);
@@ -45,19 +45,18 @@ export default function MenuLateral({ titulo, itensMenu }) {
       <BarraNavegacao
         mostrarBotaoEntrar={false}
         mostrarIconeDrawer={true}
+        mostrarBotaoNotificacoes={true}
         toggleDrawer={toggleDrawer(true)}
+        mostrarBotaoPerfil={true}
+        mostrarPesquisar={true}
         titulo={titulo}
       />
-      <Drawer
-        open={open}
-        onClose={toggleDrawer(false)}
-        sx={{
-          "& .MuiDrawer-paper": {
-            backgroundColor: theme.palette.primary.main,
-            color: "white",
-          },
-        }}
-      >
+      <Drawer open={open} onClose={toggleDrawer(false)} variant="temporary">
+        <Divider />
+        <Box sx={{padding: "10px"}}>
+        <img src="/public/simples-sem-fundo.png" width="50px" alt="" />
+        </Box>
+        <Divider />
         {DrawerList}
       </Drawer>
     </div>

@@ -9,25 +9,33 @@ import {
   MonetizationOn,
   Architecture,
   Science,
-  Article
+  Article,
+  AccountTree,
+  Sell,
+  SupportAgent,
 } from "@mui/icons-material";
 
 import Box from "@mui/material/Box";
 import RodapeAplicacao from "../components/rodapeAplicacao/RodapeAplicacao";
 import { Divider } from "@mui/material";
-
+import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 export default function DefaultLayout() {
+  //pega a localização atual da página
+  const location = useLocation();
+  //carrega os itens do menu lateral
+
   const itensMenu = [
     {
       titulo: "Menu Principal",
       patch: "/menu-principal",
       icone: <House />,
     },
+    { titulo: "Setores", patch: "/setor", icone: <AccountTree /> },
     { titulo: "Clientes", patch: "/cliente", icone: <Group /> },
-    { titulo: "FolowUp", patch: "/followup", icone: <Schema /> },
     {
-      titulo: "Orçamentos",
-      patch: "/orcamento",
+      titulo: "Pagamentos",
+      patch: "/pagamento",
       icone: <MonetizationOn />,
     },
     {
@@ -35,23 +43,22 @@ export default function DefaultLayout() {
       patch: "/projeto",
       icone: <Architecture />,
     },
-    { titulo: "Testes", patch: "/teste", icone: <Science /> },
-    {
-      titulo: "Estatisticas",
-      patch: "/estatistica",
-      icone: <Analytics />,
-    },
     {
       titulo: "Protocolos",
       patch: "/protocolo",
       icone: <Article />,
     },
-
+    { titulo: "Produtos", patch: "/produto", icone: <Sell /> },
+    {
+      titulo: "Representantes",
+      patch: "/representante",
+      icone: <SupportAgent />,
+    },
   ];
   return (
     <>
       <MenuLateral
-        titulo={"Optifec - Integração Empresarial"}
+        titulo={"Administração"}
         itensMenu={itensMenu}
       />
       <Box
@@ -62,11 +69,17 @@ export default function DefaultLayout() {
           marginTop: "80px",
         }}
       >
-        <Outlet />
-        
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: 'tween', restDelta: 0.5 }}
+        >
+          <Outlet />
+        </motion.div>
       </Box>
-      <Divider/>
-      <RodapeAplicacao/>
+      <Divider />
+      <RodapeAplicacao />
     </>
   );
 }
