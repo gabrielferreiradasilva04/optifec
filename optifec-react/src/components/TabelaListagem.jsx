@@ -25,7 +25,7 @@ export default function TabelaListagem({
         gap: "10px",
         padding: "16px",
       }}
-      elevation={0}
+      elevation={5}
     >
       <h2>{titulo}</h2>
       <Box
