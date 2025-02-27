@@ -143,7 +143,7 @@ export default function FormCadastro() {
             </Box>
             <Divider />
             <Box sx={{ display: "block", justifyContent: "center" }}>
-              <Button fullWidth variant="contained">
+              <Button sx={{borderRadius:"10px"}} size="large" fullWidth variant="contained">
                 Confirmar Cadastro
               </Button>
             </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import { Box, Button} from "@mui/material";
+import { Box, Button, TextField} from "@mui/material";
 import CustomTextField from "./defaultComponents/CustomTextField";
 import { Search, Add } from "@mui/icons-material";
 
@@ -36,7 +36,7 @@ export default function TabelaListagem({
           flexDirection: { xs: "column", md: "row", sm: "column" },
         }}
       >
-        <CustomTextField label="Pesquisar" />
+        <TextField placeholder="Pesquisar..." type="text" size="small" fullWidth/>
         <Button variant="contained" size="small" aria-label="pesquisar">
           <Search />
         </Button>
