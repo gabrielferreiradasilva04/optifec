@@ -48,13 +48,12 @@ export default function MenuLateral({ titulo, itensMenu }) {
         mostrarBotaoNotificacoes={true}
         toggleDrawer={toggleDrawer(true)}
         mostrarBotaoPerfil={true}
-        mostrarPesquisar={true}
         titulo={titulo}
       />
       <Drawer open={open} onClose={toggleDrawer(false)} variant="temporary">
         <Divider />
-        <Box sx={{padding: "10px"}}>
-        <img src="/public/simples-sem-fundo.png" width="50px" alt="" />
+        <Box sx={{ padding: "10px" }}>
+          <img src="/public/simples-sem-fundo.png" width="50px" alt="" />
         </Box>
         <Divider />
         {DrawerList}

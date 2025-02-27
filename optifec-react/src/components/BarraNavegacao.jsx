@@ -5,7 +5,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Button, FormControl, InputAdornment, OutlinedInput, TextField, Tooltip } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputAdornment,
+  OutlinedInput,
+  TextField,
+  Tooltip,
+} from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeContext } from "../theme/ThemeContext";
 import { useTheme } from "@mui/material/styles";
@@ -20,7 +27,6 @@ export default function BarraNavegacao({
   mostrarBotaoEntrar,
   mostrarBotaoNotificacoes,
   mostrarBotaoPerfil,
-  mostrarPesquisar,
 }) {
   //cor do botao principal
   const corBotaoEntrar = grey["A100"];
@@ -68,20 +74,6 @@ export default function BarraNavegacao({
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {titulo}
           </Typography>
-          {mostrarPesquisar && (
-            <FormControl sx={{ width: { xs: '100%', md: '25ch' }, mr: 1  }} variant="outlined">
-              <OutlinedInput
-                size="small"
-                placeholder="Pesquisar..."
-                sx={{ flexGrow: 1, backgroundColor:"white", color:"black", borderRadius:"10px" }}
-                startAdornment={
-                  <InputAdornment position="start" sx={{ color: 'black' }}>
-                    <Search/>
-                  </InputAdornment>
-                }
-              ></OutlinedInput>
-            </FormControl>
-          )}
           <Tooltip title="Alterar Tema">
             <Button color="inherit" sx={{ mr: 1 }} onClick={toggleTheme}>
               <DarkModeIcon />

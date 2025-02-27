@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <>
       <Box>
-        <Box sx={{ display: "flex", marginBottom: "60px" }}>
+        <Box sx={{ display: "flex", marginBottom: "30px" }}>
           <Box sx={{flex: 1 }}>
             <img
               style={{ width: "50px" }}
