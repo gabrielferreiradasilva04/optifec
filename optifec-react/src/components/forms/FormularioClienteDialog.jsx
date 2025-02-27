@@ -35,34 +35,35 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
               display: "flex",
               gap: "10px",
               flexDirection: "column",
+              padding: "16px",
             }}
           >
             <TextField
-              variant="filled"
+              variant="outlined"
               required
               size="small"
               label="Codigo"
             ></TextField>
             <TextField
-              variant="filled"
+              variant="outlined"
               required
               size="small"
               label="Nome"
             ></TextField>
             <TextField
-              variant="filled"
+              variant="outlined"
               size="small"
               label="Data Cadastro"
             ></TextField>
             <TextField
-              variant="filled"
+              variant="outlined"
               size="small"
               label="Data Alteração"
             ></TextField>
             <TextField
               multiline
               rows={4}
-              variant="filled"
+              variant="outlined"
               required
               size="small"
               label="Descrição"
