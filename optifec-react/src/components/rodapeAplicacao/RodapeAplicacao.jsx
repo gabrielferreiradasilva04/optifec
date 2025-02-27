@@ -5,7 +5,6 @@ import { Facebook, Twitter, LinkedIn, Copyright} from "@mui/icons-material";
 
 
 export default function RodapeAplicacao({ ...props }) {
-  const theme = useTheme();
   return (
     <Container
     sx={{

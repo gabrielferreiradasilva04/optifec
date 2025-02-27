@@ -24,13 +24,12 @@ export default function FormLogin() {
           flexDirection: "column",
           alignSelf: "center",
           gap: "30px",
-          padding: "60px",
+          padding: "30px",
           width: "100%",
           maxWidth: "450px",
           borderRadius: "20px",
         }}
         elevation={12}
-        autoFocus
       >
         <Typography
           sx={{ fontWeight: "bold", textAlign:"center" }}
@@ -46,7 +45,7 @@ export default function FormLogin() {
           noValidate
           onSubmit={null}
         >
-          <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <TextField
               slotProps={{
                 input: {
@@ -93,7 +92,7 @@ export default function FormLogin() {
               ></FormControlLabel>
             </FormGroup>
           </Box>
-          <Stack sx={{ gap: "10px", display: "flex" }}>
+          <Stack sx={{ gap: "10px", display: "flex"}}>
             <Button sx={{borderRadius:"10px"}} size="large" variant="contained" fullWidth>
               Entrar
             </Button>
