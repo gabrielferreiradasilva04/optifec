@@ -57,7 +57,7 @@ export default function BarraNavegacao({
         elevation={0}
         sx={{ backgroundColor: theme.palette.primary.main }}
       >
-        <Toolbar>
+        <Toolbar variant="dense">
           {mostrarIconeDrawer && (
             <IconButton
               size="large"

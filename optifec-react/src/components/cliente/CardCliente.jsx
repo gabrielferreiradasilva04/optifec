@@ -32,7 +32,7 @@ export default function CardCliente({ cliente, cliqueEditar }) {
               maxHeight: "250px",
               borderRadius: "15px",
             }}
-            elevation={6}
+            variant="outlined"
           >
             <Box
               sx={{

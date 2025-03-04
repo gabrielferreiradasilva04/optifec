@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import {
   Button,
+  Card,
   FormControlLabel,
   Grid2,
   Pagination,
@@ -62,8 +63,8 @@ export default function Cliente() {
   return (
     <>
       <Box>
-        <Box>
-          <Typography component="h1" sx={{ fontWeight: "medium" }} variant="h4">
+        <Box sx={{marginBottom:"15px"}}>
+          <Typography component="h1" fontWeight="bold" variant="h5">
             Meus Clientes
           </Typography>
         </Box>
@@ -97,11 +98,12 @@ export default function Cliente() {
             />
           </Stack>
         </Box>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1}}>
           <Grid2
             container
             spacing={{ xs: 2, md: 2 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
+          
           >
             {cartoesNoDisplay.map((cliente) => (
               <CardCliente key={cliente.codigo} cliente={cliente} cliqueEditar={cliqueAbrir} />
