@@ -1,56 +1,22 @@
 import React from "react";
-import TabelaListagem from "../components/TabelaListagem";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
-import { EditOutlined, Padding } from "@mui/icons-material";
+import {
+  Button,
+  Card,
+  FormControlLabel,
+  Grid2,
+  Pagination,
+  Stack,
+  Switch,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { Add, Search } from "@mui/icons-material";
 import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
 import { useState } from "react";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import CrudMenuItem from "../components/menus/CrudMenuItem";
-import CrudBotaoEdicao from "../components/menus/CrudBotaoEdicao";
+import CardCliente from "../components/cliente/CardCliente";
 
 export default function Cliente() {
-  //ancoras do menu
-  const [ancoraMenuCrud, setAncoraMenuCrud] = useState(null);
-  const menuCrudAberto = Boolean(ancoraMenuCrud);
-
-  //função para abrir o menu crud
-  const abrirMenuCrud = (event) => {
-    setAncoraMenuCrud(event.currentTarget);
-  };
-
-  //função para fechar o menu crud
-  const fecharMenuCrud = () => {
-    setAncoraMenuCrud(null);
-  };
-
-  const colunas = [
-    { field: "id", headerName: "Código do Cliente", flex: 1 },
-    { field: "nome", headerName: "Nome Cliente", flex: 1 },
-    { field: "representante", headerName: "Representante", flex: 1 },
-    {
-      field: "codigoFecial",
-      headerName: "Cod. Fec",
-      flex: 1,
-    },
-    {
-      field: "actions",
-      headerName: "Ações",
-      width: 150,
-      renderCell: (params) => (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <CrudBotaoEdicao />
-        </div>
-      ),
-    },
-  ];
   const itens = [
     { id: 1, nome: "Snow", representante: "Jon", codigo: 35 },
     { id: 2, nome: "Lannister", representante: "Cersei", codigo: 42 },
@@ -74,20 +40,82 @@ export default function Cliente() {
   };
   //variaveis e funções do dialog
 
+  //paginação do conteudo
+  const ITENS_POR_PAGINA = 6;
+
+  const [pagina, setPagina] = useState(1);
+
+  const paginasTotal = Math.ceil(itens.length / ITENS_POR_PAGINA);
+
+  const mudarPagina = (event, value) => {
+    setPagina(value);
+  };
+
+  const paginaInicio = (pagina - 1) * ITENS_POR_PAGINA;
+
+  const cartoesNoDisplay = itens.slice(
+    paginaInicio,
+    paginaInicio + ITENS_POR_PAGINA
+  );
+  //variáveis de filtragem
+  const [somenteAtivos, setSomenteAtivos] = useState(false);
+
   return (
     <>
-      <Box
-        sx={{
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-        }}
-      >
-        <TabelaListagem
-          novoRegistro={cliqueAbrir}
-          colunas={colunas}
-          itens={itens}
-          titulo="Cadastro de Clientes"
+      <Box>
+        <Box sx={{marginBottom:"15px"}}>
+          <Typography component="h1" fontWeight="bold" variant="h5">
+            Meus Clientes
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            marginBottom: "20px",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "10px",
+            flexDirection: { xs: "column", md: "row", sm: "column" },
+          }}
+        >
+          <TextField placeholder="Pesquisar..." size="small" fullWidth />
+          <Button variant="contained" size="small">
+            <Search />
+          </Button>
+          <Button variant="contained" size="small" onClick={cliqueAbrir}>
+            <Add />
+          </Button>
+          <Stack>
+            <FormControlLabel
+              label="Ativos"
+              control={
+                <Switch
+                  checked={somenteAtivos}
+                  onChange={() => setSomenteAtivos(!somenteAtivos)}
+                  name="toggleCadEmpresa"
+                  color="primary"
+                />
+              }
+            />
+          </Stack>
+        </Box>
+        <Box sx={{ flexGrow: 1}}>
+          <Grid2
+            container
+            spacing={{ xs: 2, md: 2 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+          
+          >
+            {cartoesNoDisplay.map((cliente) => (
+              <CardCliente key={cliente.codigo} cliente={cliente} cliqueEditar={cliqueAbrir} />
+            ))}
+          </Grid2>
+        </Box>
+
+        <Pagination
+          count={paginasTotal}
+          page={pagina}
+          onChange={mudarPagina}
+          sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
         />
       </Box>
       <FormularioClienteDialog

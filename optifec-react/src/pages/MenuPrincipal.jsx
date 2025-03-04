@@ -1,5 +1,12 @@
-import { Box, Container, Grid2, Paper } from "@mui/material";
+import {
+  Box,
+  Grid2,
+} from "@mui/material";
 import React from "react";
+import DisplayProjetos from "../components/menuPrincipal/DisplayProjetos";
+import DisplayProtocolos from "../components/menuPrincipal/DisplayProtocolos";
+import DisplayPrazos from "../components/menuPrincipal/DisplayPrazos";
+import DisplayNovos from "../components/menuPrincipal/DisplayNovos";
 
 export default function MenuPrincipal() {
   return (
@@ -11,19 +18,18 @@ export default function MenuPrincipal() {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           <Grid2 size={{ xs: 6, sm: 4, md: 6 }}>
-            <Paper>Conteudo 4</Paper>{" "}
+            <DisplayProjetos />
           </Grid2>
 
           <Grid2 size={{ xs: 6, sm: 4, md: 6 }}>
-            <Paper>Conteudo 4</Paper>{" "}
+            <DisplayProtocolos />
           </Grid2>
 
           <Grid2 size={{ xs: 6, sm: 4, md: 6 }}>
-            <Paper>Conteudo 4</Paper>{" "}
+            <DisplayPrazos />
           </Grid2>
-          
           <Grid2 size={{ xs: 6, sm: 4, md: 6 }}>
-            <Paper>Conteudo 4</Paper>
+            <DisplayNovos />
           </Grid2>
         </Grid2>
       </Box>
