@@ -10,7 +10,10 @@ import {
 } from "@mui/material";
 import React from "react";
 
-export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
+export default function FormRepresentanteDialog({
+  dialog,
+  cliqueFechar,
+}) {
   return (
     <>
       <Dialog
@@ -27,7 +30,7 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
           },
         }}
       >
-        <DialogTitle>Formulário de Cliente</DialogTitle>
+        <DialogTitle>Formulário Representantes</DialogTitle>
         <DialogContent>
           <Box
             sx={{
@@ -49,6 +52,12 @@ export default function FormularioClienteDialog({ dialog, cliqueFechar }) {
               required
               size="small"
               label="Nome"
+            ></TextField>
+            <TextField
+              variant="outlined"
+              required
+              size="small"
+              label="Local"
             ></TextField>
             <TextField
               variant="outlined"

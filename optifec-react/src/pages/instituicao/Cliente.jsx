@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Add, Search } from "@mui/icons-material";
-import FormularioClienteDialog from "../../components/forms/FormularioClienteDialog";
+import FormClienteDialog from "../../components/forms/FormClienteDialog";
 import { useState } from "react";
 import CardCliente from "../../components/cards/CardCliente";
 
@@ -65,7 +65,7 @@ export default function Cliente() {
   return (
     <>
       <Box>
-        <Box sx={{marginBottom:"15px"}}>
+        <Box sx={{ marginBottom: "15px" }}>
           <Typography component="h1" fontWeight="bold" variant="h5">
             Meus Clientes
           </Typography>
@@ -100,15 +100,18 @@ export default function Cliente() {
             />
           </Stack>
         </Box>
-        <Box sx={{ flexGrow: 1}}>
+        <Box sx={{ flexGrow: 1 }}>
           <Grid2
             container
             spacing={{ xs: 2, md: 2 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
-          
           >
             {cartoesNoDisplay.map((cliente) => (
-              <CardCliente key={cliente.codigo} cliente={cliente} cliqueEditar={cliqueAbrir} />
+              <CardCliente
+                key={cliente.codigo}
+                cliente={cliente}
+                cliqueEditar={cliqueAbrir}
+              />
             ))}
           </Grid2>
         </Box>
@@ -120,10 +123,7 @@ export default function Cliente() {
           sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
         />
       </Box>
-      <FormularioClienteDialog
-        dialog={dialogCliente}
-        cliqueFechar={cliqueFechar}
-      />
+      <FormClienteDialog dialog={dialogCliente} cliqueFechar={cliqueFechar} />
     </>
   );
 }
