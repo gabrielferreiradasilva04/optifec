@@ -1,24 +1,17 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 //páginas do comercial
-import Cliente from "../pages/Cliente";
-import Estatistica from "../pages/Estatistica";
-import Followup from "../pages/Followup";
-import Login from "../pages/Login";
-import MenuPrincipal from "../pages/MenuPrincipal";
-import Orcamento from "../pages/Orcamento";
-import Projeto from "../pages/Projeto";
-import Protocolo from "../pages/Protocolo";
-import Teste from "../pages/Teste";
-import Verificacao from "../pages/Verificacao";
+import Cliente from "../pages/instituicao/Cliente";
+import Login from "../pages/auth/Login";
+import MenuPrincipal from "../pages/instituicao/MenuPrincipal";
+import Projeto from "../pages/instituicao/Projeto";
+import Protocolo from "../pages/instituicao/Protocolo";
 import LayoutEmpresa from "../layouts/LayoutEmpresa";
-import Index from "../pages/Index";
+import Index from "../pages/instituicao/Index";
 import AuthLayout from "../layouts/AuthLayout";
 import LayoutInicial from "../layouts/LayoutInicial";
-import Setor from "../pages/Setor"
-import Representante from "../pages/Representante"
-import Pagamento from "../pages/Pagamento"
-import Produto from "../pages/Produto"
-import Cadastro from "../pages/Cadastro";
+import Setor from "../pages/instituicao/Setor"
+import Representante from "../pages/instituicao/Representante"
+import Cadastro from "../pages/auth/Cadastro";
 export const CustomRoutes = () => {
   return (
     <BrowserRouter>
@@ -26,17 +19,10 @@ export const CustomRoutes = () => {
         <Route path="/" element={<LayoutEmpresa />}>
           <Route path="menu-principal" element={<MenuPrincipal />}></Route>
           <Route path="cliente" element={<Cliente />}></Route>
-          <Route path="estatistica" element={<Estatistica />}></Route>
-          <Route path="followup" element={<Followup />}></Route>
-          <Route path="orcamento" element={<Orcamento />}></Route>
           <Route path="projeto" element={<Projeto />}></Route>
           <Route path="protocolo" element={<Protocolo />}></Route>
-          <Route path="teste" element={<Teste />}></Route>
-          <Route path="verificacao" element={<Verificacao />}></Route>
           <Route path="setor" element={<Setor />}></Route>
           <Route path="representante" element={<Representante />}></Route>
-          <Route path="pagamento" element={<Pagamento />}></Route>
-          <Route path="produto" element={<Produto />}></Route>
         </Route>
         <Route path="/" element={<AuthLayout />}>
           {/* rotas de login */}

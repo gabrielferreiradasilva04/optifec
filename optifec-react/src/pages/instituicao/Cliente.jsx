@@ -12,9 +12,9 @@ import {
   Typography,
 } from "@mui/material";
 import { Add, Search } from "@mui/icons-material";
-import FormularioClienteDialog from "../components/forms/FormularioClienteDialog";
+import FormularioClienteDialog from "../../components/forms/FormularioClienteDialog";
 import { useState } from "react";
-import CardCliente from "../components/cliente/CardCliente";
+import CardCliente from "../../components/cards/CardCliente";
 
 export default function Cliente() {
   const itens = [
@@ -57,7 +57,9 @@ export default function Cliente() {
     paginaInicio,
     paginaInicio + ITENS_POR_PAGINA
   );
-  //variáveis de filtragem
+  //paginação do conteudo
+
+  //variaveis de filtragem
   const [somenteAtivos, setSomenteAtivos] = useState(false);
 
   return (

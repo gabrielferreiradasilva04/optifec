@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import React from "react";
-import FormCadastro from "../components/forms/FormCadastro";
+import FormCadastro from "../../components/forms/FormCadastro";
 import { useNavigate } from "react-router-dom";
 
 export default function Cadastro() {

@@ -1,12 +1,13 @@
 import {
   Box,
   Grid2,
+  Typography,
 } from "@mui/material";
 import React from "react";
-import DisplayProjetos from "../components/menuPrincipal/DisplayProjetos";
-import DisplayProtocolos from "../components/menuPrincipal/DisplayProtocolos";
-import DisplayPrazos from "../components/menuPrincipal/DisplayPrazos";
-import DisplayNovos from "../components/menuPrincipal/DisplayNovos";
+import DisplayProjetos from "../../components/menuPrincipal/DisplayProjetos";
+import DisplayProtocolos from "../../components/menuPrincipal/DisplayProtocolos";
+import DisplayPrazos from "../../components/menuPrincipal/DisplayPrazos";
+import DisplayNovos from "../../components/menuPrincipal/DisplayNovos";
 
 export default function MenuPrincipal() {
   return (

@@ -1,6 +1,6 @@
 import { Grid2 } from "@mui/material";
 import * as React from "react";
-import CustomImageCard from "../defaultComponents/CustomImageCard";
+import CustomImageCard from "../cards/CustomImageCard";
 
 export default function SecaoCartoes() {
   return (

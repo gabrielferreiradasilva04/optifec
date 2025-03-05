@@ -1,6 +1,6 @@
 import React from "react";
-import SecaoApresentacao from "../components/paginaInicial/SecaoApresentacao";
-import SecaoCartoes from "../components/paginaInicial/SecaoCartoes";
+import SecaoApresentacao from "../../components/paginaInicial/SecaoApresentacao";
+import SecaoCartoes from "../../components/paginaInicial/SecaoCartoes";
 import { Box } from "@mui/material";
 
 export default function Index() {

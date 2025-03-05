@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
-import FormLogin from "../components/forms/FormLogin";
+import FormLogin from "../../components/forms/FormLogin";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();

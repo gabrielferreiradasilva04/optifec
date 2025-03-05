@@ -12,7 +12,7 @@ import BarraNavegacao from "./BarraNavegacao";
 import { useNavigate } from "react-router-dom";
 import { Divider, useTheme } from "@mui/material";
 
-export default function MenuLateral({ titulo, itensMenu }) {
+export default function TemplatePadrao({ titulo, itensMenu }) {
   const [open, setOpen] = React.useState(false);
 
   //Função para ativar e desativar o drawer
