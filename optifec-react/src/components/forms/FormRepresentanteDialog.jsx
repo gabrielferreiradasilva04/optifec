@@ -10,13 +10,11 @@ import {
 } from "@mui/material";
 import React from "react";
 
-export default function FormRepresentanteDialog({
-  dialog,
-  cliqueFechar,
-}) {
+export default function FormRepresentanteDialog({ dialog, cliqueFechar }) {
   return (
     <>
       <Dialog
+        disableRestoreFocus
         fullWidth
         open={dialog}
         slotProps={{

@@ -13,6 +13,7 @@ export default function FormSetorDialog({ dialog, cliqueFechar }) {
   return (
     <>
       <Dialog
+        disableRestoreFocus
         fullWidth
         open={dialog}
         slotProps={{

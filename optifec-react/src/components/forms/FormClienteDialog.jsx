@@ -14,6 +14,7 @@ export default function FormClienteDialog({ dialog, cliqueFechar }) {
   return (
     <>
       <Dialog
+        disableRestoreFocus
         fullWidth
         open={dialog}
         slotProps={{

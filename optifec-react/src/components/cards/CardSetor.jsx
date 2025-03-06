@@ -1,4 +1,4 @@
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete, Edit, Group } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -6,12 +6,13 @@ import {
   CardActions,
   Divider,
   Grid2,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 
-export default function CardSetor({ setor, cliqueEditar }) {
+export default function CardSetor({ setor, cliqueEditar, cliqueMembros }) {
   return (
     <>
       <Grid2 size={{ xs: 6, sm: 4, md: 4 }}>
@@ -57,12 +58,21 @@ export default function CardSetor({ setor, cliqueEditar }) {
             </Box>
             <Divider />
             <CardActions sx={{ justifyContent: "end" }}>
-              <Button onClick={cliqueEditar} size="small" variant="contained">
-                <Edit />
-              </Button>
-              <Button size="small" variant="contained">
-                <Delete />
-              </Button>
+              <Tooltip title="Editar">
+                <Button onClick={cliqueEditar} size="small" variant="contained">
+                  <Edit />
+                </Button>
+              </Tooltip>
+              <Tooltip title="Excluir">
+                <Button size="small" variant="contained">
+                  <Delete />
+                </Button>
+              </Tooltip>
+              <Tooltip title="Membros">
+                <Button size="small" variant="contained" onClick={cliqueMembros}>
+                  <Group />
+                </Button>
+              </Tooltip>
             </CardActions>
           </Card>
         </motion.div>

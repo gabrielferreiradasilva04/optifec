@@ -15,6 +15,7 @@ import { Add, Search } from "@mui/icons-material";
 import { useState } from "react";
 import CardSetor from "../../components/cards/CardSetor";
 import FormSetorDialog from "../../components/forms/FormSetorDialog";
+import FormMembroSetorDialog from "../../components/forms/FormMembroSetorDialog";
 
 export default function Setor() {
   const itens = [
@@ -29,16 +30,34 @@ export default function Setor() {
     { id: 9, nome: "Roxie", representante: "Harvey", codigo: 65 },
   ];
 
-  //variaveis e funções do dialog
+  //variaveis e funções do dialog de cadastro
   const [dialogSetor, setDialogSetor] = useState(false);
 
   const cliqueAbrir = () => {
     setDialogSetor(true);
   };
+  
   const cliqueFechar = () => {
     setDialogSetor(false);
   };
-  //variaveis e funções do dialog
+  //variaveis e funções do dialog de cadastro
+
+  //variaveis e funções do dialog de membros
+
+  const [dialogMembros, setDialogMembros] = useState(false);
+  const [setorSelecionado, setSetorSelecionado] = useState(null);
+
+  const cliqueAbrirMembros = (setor) => {
+    setDialogMembros(true);
+    setSetorSelecionado(setor);
+    console.log("setor: " + setor.nome);
+  };
+
+  const cliqueFecharMembros = () => {
+    setDialogMembros(false);
+  };
+
+  //variaveis e funções do dialog de membros
 
   //paginação do conteudo
   const ITENS_POR_PAGINA = 6;
@@ -65,7 +84,7 @@ export default function Setor() {
   return (
     <>
       <Box>
-        <Box sx={{marginBottom:"15px"}}>
+        <Box sx={{ marginBottom: "15px" }}>
           <Typography component="h1" fontWeight="bold" variant="h5">
             Meus Setores
           </Typography>
@@ -100,15 +119,19 @@ export default function Setor() {
             />
           </Stack>
         </Box>
-        <Box sx={{ flexGrow: 1}}>
+        <Box sx={{ flexGrow: 1 }}>
           <Grid2
             container
             spacing={{ xs: 2, md: 2 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
-          
           >
             {cartoesNoDisplay.map((setor) => (
-              <CardSetor key={setor.codigo} setor={setor} cliqueEditar={cliqueAbrir} />
+              <CardSetor
+                key={setor.codigo}
+                setor={setor}
+                cliqueEditar={cliqueAbrir}
+                cliqueMembros={() => cliqueAbrirMembros(setor)}
+              />
             ))}
           </Grid2>
         </Box>
@@ -120,9 +143,11 @@ export default function Setor() {
           sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
         />
       </Box>
-      <FormSetorDialog
-        dialog={dialogSetor}
-        cliqueFechar={cliqueFechar}
+      <FormSetorDialog dialog={dialogSetor} cliqueFechar={cliqueFechar} />
+      <FormMembroSetorDialog
+        dialog={dialogMembros}
+        cliqueFechar={cliqueFecharMembros}
+        setor={setorSelecionado}
       />
     </>
   );
